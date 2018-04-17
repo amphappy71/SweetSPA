@@ -3,11 +3,25 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { SweetNavComponent } from './sweet-nav/sweet-nav.component';
+import { SweetVisionComponent } from './sweet-vision/sweet-vision.component';
+import { SweetContactComponent } from './sweet-contact/sweet-contact.component';
+import { SweetPWorkerComponent } from './sweet-p-worker/sweet-p-worker.component';
+import { SweetProductComponent } from './sweet-product/sweet-product.component';
+import { SweetBlogComponent } from './sweet-blog/sweet-blog.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CheckoutComponent,
+    SweetNavComponent,
+    SweetVisionComponent,
+    SweetContactComponent,
+    SweetPWorkerComponent,
+    SweetProductComponent,
+    SweetBlogComponent
   ],
   imports: [
     BrowserModule
