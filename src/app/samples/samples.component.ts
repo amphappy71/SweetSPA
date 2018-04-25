@@ -11,15 +11,18 @@ export class SamplesComponent implements OnInit {
   toggleUsFlag = true; // Typescript infers boolean type per linter.
   selectedUs: string;
   color: string;
+  styleToggleFlag = true;
+
 
   myStyle: {};
 
   setStyle() {
     this.myStyle = {
-      'font-weight': 'bold',
-      'font-size' : '24px',
+      'font-weight': this.styleToggleFlag ? 'bold' : 'normal',
+      'font-size' :  this.styleToggleFlag ? '64px' : '24px',
       'color' : this.generateRandomColor()
     };
+    this.styleToggleFlag = !this.styleToggleFlag;
   }
 
   generateRandomColor() {
