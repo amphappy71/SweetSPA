@@ -12,3 +12,6 @@
   <div *ngSwitchDefault>None of Us selected</div>
 </div>
 <button type="button" name="button" (click)=setStyle()>Change Style</button>
+
+<h2 [ngClass]="currentCSSClass">Change CSS Dynamically</h2>
+<button type="button" name="button" (click)=setCSSClass()>Change CSS Class Dynamically</button>

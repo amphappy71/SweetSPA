@@ -12,9 +12,19 @@ export class SamplesComponent implements OnInit {
   selectedUs: string;
   color: string;
   styleToggleFlag = true;
+  currentCSSClass = 'styleRed';
 
 
   myStyle: {};
+
+  setCSSClass() {
+    if (this.currentCSSClass === 'styleRed') {
+      this.currentCSSClass = 'styleWhite';
+    } else {
+      this.currentCSSClass = 'styleRed';
+    }
+    console.log(this.currentCSSClass);
+  }
 
   setStyle() {
     this.myStyle = {
