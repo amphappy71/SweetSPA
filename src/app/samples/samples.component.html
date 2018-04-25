@@ -5,8 +5,8 @@
 </div>
 </div>
 <div [ngSwitch]="selectedUs">
-  <div *ngSwitchCase="familyMemebers[0]">Todd Smith</div>
-  <div *ngSwitchCase="familyMemebers[1]">Carrie Smith</div>
+  <div *ngSwitchCase="familyMemebers[0]">Todd Smith</div> // Double quotes to check passed value
+  <div *ngSwitchCase="'Mom'">Carrie Smith</div> // Single in Double to check a string
   <div *ngSwitchCase="familyMemebers[2]">Andrew Smith</div>
   <div *ngSwitchCase="familyMemebers[3]">Todd Smith II</div>
   <div *ngSwitchDefault>None of Us selected</div>
