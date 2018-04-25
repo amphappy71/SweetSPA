@@ -1,3 +1,6 @@
-<p>
-  samples works!
-</p>
+<button name="button" type="button" class="btn btn-dark" (click)=toggleMember()>Toggle Us</button>
+<div *ngIf=toggleUsFlag>
+<div class="" *ngFor="let fam of familyMemebers; let i=index">
+  {{i+1}}{{fam}}
+</div>
+</div>
