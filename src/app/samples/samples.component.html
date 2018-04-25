@@ -4,10 +4,11 @@
   {{i+1}}{{fam}}
 </div>
 </div>
-<div [ngSwitch]="selectedUs">
+<div [ngSwitch]="selectedUs" [ngStyle]=myStyle>
   <div *ngSwitchCase="familyMemebers[0]">Todd Smith</div>
   <div *ngSwitchCase="'Mom'">Carrie Smith</div>
   <div *ngSwitchCase="familyMemebers[2]">Andrew Smith</div>
   <div *ngSwitchCase="familyMemebers[3]">Todd Smith II</div>
   <div *ngSwitchDefault>None of Us selected</div>
 </div>
+<button type="button" name="button" (click)=setStyle()>Change Style</button>
