@@ -10,6 +10,7 @@ import { SweetContactComponent } from './sweet-contact/sweet-contact.component';
 import { SweetPWorkerComponent } from './sweet-p-worker/sweet-p-worker.component';
 import { SweetProductComponent } from './sweet-product/sweet-product.component';
 import { SweetBlogComponent } from './sweet-blog/sweet-blog.component';
+import { SamplesComponent } from './samples/samples.component';
 
 
 @NgModule({
@@ -21,8 +22,9 @@ import { SweetBlogComponent } from './sweet-blog/sweet-blog.component';
     SweetContactComponent,
     SweetPWorkerComponent,
     SweetProductComponent,
-    SweetBlogComponent
-  ],
+    SweetBlogComponent,
+    SamplesComponent,
+      ],
   imports: [
     BrowserModule
   ],
