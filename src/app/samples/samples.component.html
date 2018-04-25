@@ -4,10 +4,10 @@
   {{i+1}}{{fam}}
 </div>
 </div>
-<div [ngSwitch]="">
-  <div *ngSwitchCase="">Todd Smith</div>
-  <div *ngSwitchCase="">Carrie Smith</div>
-  <div *ngSwitchCase="">Andrew Smith</div>
-  <div *ngSwitchCase="">Todd Smith II</div>
+<div [ngSwitch]="selectedUs">
+  <div *ngSwitchCase="familyMemebers[0]">Todd Smith</div>
+  <div *ngSwitchCase="familyMemebers[1]">Carrie Smith</div>
+  <div *ngSwitchCase="familyMemebers[2]">Andrew Smith</div>
+  <div *ngSwitchCase="familyMemebers[3]">Todd Smith II</div>
   <div *ngSwitchDefault>None of Us selected</div>
 </div>
