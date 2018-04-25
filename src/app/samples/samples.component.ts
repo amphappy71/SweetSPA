@@ -11,8 +11,9 @@ export class SamplesComponent implements OnInit {
   toggleUsFlag = true; // Typescript infers boolean type per linter.
   selectedUs: string;
 
-  selectUs(us) {
-    this.selectedUs = us;
+  selectUs(selectedUs) {
+    this.selectedUs = selectedUs;
+    console.log(selectedUs);
   }
 
   toggleMember() {
