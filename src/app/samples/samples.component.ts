@@ -13,6 +13,7 @@ export class SamplesComponent implements OnInit {
   color: string;
   styleToggleFlag = true;
   currentCSSClass = 'styleRed';
+  inputColor = 'red';
 
 
   myStyle: {};

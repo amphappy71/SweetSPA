@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -11,6 +11,7 @@ import { SweetPWorkerComponent } from './sweet-p-worker/sweet-p-worker.component
 import { SweetProductComponent } from './sweet-product/sweet-product.component';
 import { SweetBlogComponent } from './sweet-blog/sweet-blog.component';
 import { SamplesComponent } from './samples/samples.component';
+import { AppBoldDirective } from './app-bold.directive';
 
 
 @NgModule({
@@ -24,9 +25,11 @@ import { SamplesComponent } from './samples/samples.component';
     SweetProductComponent,
     SweetBlogComponent,
     SamplesComponent,
+    AppBoldDirective,
       ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

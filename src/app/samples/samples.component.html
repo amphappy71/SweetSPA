@@ -1,6 +1,6 @@
 <button name="button" type="button" class="btn btn-dark" (click)=toggleMember()>Toggle Us</button>
 <div *ngIf=toggleUsFlag>
-<div class="" *ngFor="let fam of familyMemebers; let i=index" (click)=selectUs(fam)>
+<div class="" *ngFor="let fam of familyMemebers; let i=index" (click)=selectUs(fam) appAppBold bgColor='blue'>
   {{i+1}}{{fam}}
 </div>
 </div>
@@ -15,3 +15,6 @@
 
 <h2 [ngClass]="currentCSSClass">Change CSS Dynamically</h2>
 <button type="button" name="button" (click)=setCSSClass()>Change CSS Class Dynamically</button>
+
+<h2 [style.color]="inputColor">Change text color using NgModel</h2>
+<input type="text" [(ngModel)]="inputColor" name="" value="">
