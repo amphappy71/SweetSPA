@@ -12,6 +12,9 @@ import { SweetProductComponent } from './sweet-product/sweet-product.component';
 import { SweetBlogComponent } from './sweet-blog/sweet-blog.component';
 import { SamplesComponent } from './samples/samples.component';
 import { AppBoldDirective } from './app-bold.directive';
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './/app-routing.module';
+
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { AppBoldDirective } from './app-bold.directive';
       ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
