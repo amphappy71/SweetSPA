@@ -1,14 +1,8 @@
-<h1 style.color="#1B5196" class="text-primary">Routing</h1>
-
-<hr>
-
-
-
-    <ul class="nav nav-pills">
-      <li routerLinkActive="active"><a routerLink="/">Samples</a></li>
-      <li routerLinkActive="active"><a routerLink="/contact">Contact</a></li>
-      <li routerLinkActive="active"><a routerLink="/blog">Blog</a></li>
-    </ul>
+<ul class="nav nav-tabs bg-light">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="" class="nav-link">Home</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="blog" class="nav-link">Blog</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="contact" class="nav-link">Contact</a></li>
+</ul>
 
 
 

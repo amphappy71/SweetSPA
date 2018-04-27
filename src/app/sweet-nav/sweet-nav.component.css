@@ -1,0 +1,9 @@
+.nav-link{
+  color: red;
+  background-color: aqua;
+}
+
+.nav-link:active{
+  background-color: blueviolet;
+}
+
