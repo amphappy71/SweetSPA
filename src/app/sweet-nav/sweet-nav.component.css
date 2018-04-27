@@ -1,9 +1,29 @@
-.nav-link{
-  color: red;
-  background-color: aqua;
+.navbar-inner {
+  background-color: red;
+}
+.brand,
+.nav > li > a {
+  color: greenyellow;
 }
 
-.nav-link:active{
-  background-color: blueviolet;
+.nav > li > a:focus,
+.nav > li > a:hover {
+
+  background-color: hotpink;
 }
+.nav .active > a,
+.nav .active > a:hover,
+.nav .active > a:focus {
+  background-color: gold;
+}
+.navbar-link {
+  background-color: brown;
+}
+.navbar-link:hover {
+  background-color: blue;
+}
+.divider-vertical {
+  color: green;
+}
+
 
