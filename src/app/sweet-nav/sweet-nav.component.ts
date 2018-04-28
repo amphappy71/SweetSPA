@@ -1,4 +1,6 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, OnDestroy } from '@angular/core';
+import { SweetMessageService } from '../sweet-message.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-sweet-nav',
@@ -7,11 +9,26 @@ import { Component, OnInit, NgModule } from '@angular/core';
 })
 
 
-export class SweetNavComponent implements OnInit {
+export class SweetNavComponent implements OnDestroy {
+  message: any;
+  newMessage: any;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private sweetmessage: SweetMessageService) {
+    this.subscription = this.sweetmessage.getMessages().subscribe(message => { this.message = message; });
+  }
 
-  ngOnInit() {
+  sendMessage(newMessage): void {
+    this.sweetmessage.add(newMessage);
+  }
+
+  getMessage() {
+    return this.sweetmessage.getMessages().subscribe(message => { this.message = message; });
+
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

@@ -14,6 +14,9 @@ import { SamplesComponent } from './samples/samples.component';
 import { AppBoldDirective } from './app-bold.directive';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './/app-routing.module';
+import { SweetDataService } from './sweet-data.service';
+import { SweetMessageService } from './sweet-message.service';
+import { SweetToolsService } from './sweet-tools.service';
 
 
 
@@ -35,7 +38,7 @@ import { AppRoutingModule } from './/app-routing.module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SweetDataService, SweetMessageService, SweetToolsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

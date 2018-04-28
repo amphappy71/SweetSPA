@@ -3,7 +3,13 @@
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="blog" class="nav-link">Blog</a></li>
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="contact" class="nav-link">Contact</a></li>
 </ul>
+<hr>
+<input type="text" name="" id="" label="" [(ngModel)]='newMessage'>
+<button name="button" type="button" class="btn btn-dark" (click)=sendMessage(newMessage)>Send Message</button>
+<button name="button" type="button" class="btn btn-dark" (click)=getMessage()>Get Message</button>
 
 
-
+<div>
+  {{message}}
+</div>
 

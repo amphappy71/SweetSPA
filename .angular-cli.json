@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "testicon.ico"
+        "t-shirt-logo-black-white.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
