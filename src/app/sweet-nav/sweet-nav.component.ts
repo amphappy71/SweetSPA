@@ -9,26 +9,10 @@ import { Subscription } from 'rxjs/Subscription';
 })
 
 
-export class SweetNavComponent implements OnDestroy {
+export class SweetNavComponent {
   message: any;
   newMessage: any;
   subscription: Subscription;
 
-  constructor(private sweetmessage: SweetMessageService) {
-    this.subscription = this.sweetmessage.getMessages().subscribe(message => { this.message = message; });
+  constructor(private sweetmessage: SweetMessageService) {}
   }
-
-  sendMessage(newMessage): void {
-    this.sweetmessage.add(newMessage);
-  }
-
-  getMessage() {
-    return this.sweetmessage.getMessages().subscribe(message => { this.message = message; });
-
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-}
