@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { MissionComponent } from './mission/mission.component';
 import { StoreComponent } from './store/store.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -40,6 +41,7 @@ import { StoreComponent } from './store/store.component';
     AboutComponent,
     MissionComponent,
     StoreComponent,
+    AdminComponent,
       ],
   imports: [
     BrowserModule,
