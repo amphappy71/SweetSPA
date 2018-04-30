@@ -17,6 +17,10 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SweetDataService } from './sweet-data.service';
 import { SweetMessageService } from './sweet-message.service';
 import { SweetToolsService } from './sweet-tools.service';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { MissionComponent } from './mission/mission.component';
+import { StoreComponent } from './store/store.component';
 
 
 
@@ -32,6 +36,10 @@ import { SweetToolsService } from './sweet-tools.service';
     SweetBlogComponent,
     SamplesComponent,
     AppBoldDirective,
+    HomeComponent,
+    AboutComponent,
+    MissionComponent,
+    StoreComponent,
       ],
   imports: [
     BrowserModule,

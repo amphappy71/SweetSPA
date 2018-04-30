@@ -8,14 +8,25 @@ import { SweetBlogComponent } from './sweet-blog/sweet-blog.component';
 import { SweetVisionComponent } from './sweet-vision/sweet-vision.component';
 import { AppComponent } from './app.component';
 import { SweetNavComponent } from './sweet-nav/sweet-nav.component';
+import { HomeComponent } from './home/home.component';
+import { MissionComponent } from './mission/mission.component';
+import { AboutComponent } from './about/about.component';
+import { StoreComponent } from './store/store.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
 const appRoutes: Routes = [
-  {path: '', component: SweetVisionComponent},
+  {path: '', component: HomeComponent},
   {path: 'contact', component: SweetContactComponent},
   {path: 'blog', component: SweetBlogComponent},
-  {path: 'samples', component: SamplesComponent}
+  {path: 'samples', component: SamplesComponent},
+  {path: 'vision', component: SweetVisionComponent},
+  {path: 'mission', component: MissionComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'store', component: StoreComponent},
+  {path: 'checkout', component: CheckoutComponent}
+
 ];
 
 @NgModule({

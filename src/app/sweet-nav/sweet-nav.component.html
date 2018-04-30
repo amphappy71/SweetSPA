@@ -1,9 +1,4 @@
-<ul class="nav nav-tabs bg-light">
-  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="" class="nav-link">Home</a></li>
-  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="blog" class="nav-link">Blog</a></li>
-  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="contact" class="nav-link">Contact</a></li>
-</ul>
-<hr>
+<!-- <hr>
 <input type="text" name="" id="" label="" [(ngModel)]='newMessage'>
 <button name="button" type="button" class="btn btn-dark" (click)=sendMessage(newMessage)>Send Message</button>
 <button name="button" type="button" class="btn btn-dark" (click)=getMessage()>Get Message</button>
@@ -11,5 +6,18 @@
 
 <div>
   {{message}}
-</div>
+</div> -->
 
+<div class="container">
+<ul class="nav nav-pills bg-light justify-content-md-center">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="" class="nav-link">Home</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="store" class="nav-link">Store</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="mission" class="nav-link">Mission</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="vision" class="nav-link">Vision</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="about" class="nav-link">About</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="contact" class="nav-link">Contact</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="checkout" class="nav-link">Checkout</a></li>
+
+
+</ul>
+</div>

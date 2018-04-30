@@ -1,0 +1,12 @@
+.jumbotron {
+  background-image: url("../../assets/clouds.png");
+  background-size: cover;
+  background-position: topc;
+  background-repeat: no-repeat;
+  color: cyan;
+  font-family: 'Trebuchet MS';
+  text-align: center;
+
+
+}
+
