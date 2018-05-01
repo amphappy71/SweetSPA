@@ -4,6 +4,8 @@ import { Product } from '../product';
 import { Shopper } from '../shopper';
 import { Transaction } from '../transaction';
 import { Worker } from '../worker';
+import { SweetDataService } from '../sweet-data.service';
+import { workers } from 'cluster';
 
 @Component({
   selector: 'app-samples',
@@ -29,8 +31,47 @@ export class SamplesComponent implements OnInit {
   transactionList: Transaction[] = [];
   workerList: Worker[] = [];
 
+
+  constructor(private data: SweetDataService) { }
+
   getAdmins() {
-  // Todo after dataservice
+    this.data.getAdmins()
+    .subscribe( admins => {
+      this.adminList = admins;
+      console.log('Admin data from Sweet DataService: ' + this.adminList);
+    });
+  }
+
+  getProducts() {
+    this.data.getProducts()
+    .subscribe( products => {
+      this.productList = products;
+      console.log('Product data from Sweet DataService: ' + this.productList);
+    });
+  }
+
+  getShoppers() {
+    this.data.getShoppers()
+    .subscribe( shoppers => {
+      this.shopperList = shoppers;
+      console.log('Shopper data from Sweet DataService: ' + this.shopperList);
+    });
+  }
+
+  getTransactions() {
+    this.data.getTransactions()
+    .subscribe( transactions => {
+      this.transactionList = transactions;
+      console.log('Transitions data from Sweet DataService: ' + this.transactionList);
+    });
+  }
+
+  getWorkers() {
+    this.data.getWorkers()
+    .subscribe( worker => {
+      this.workerList = worker;
+      console.log('Worker data from Sweet DataService: ' + this.workerList);
+    });
   }
 
 
@@ -70,8 +111,6 @@ export class SamplesComponent implements OnInit {
   toggleMember() {
     this.toggleUsFlag = !this.toggleUsFlag;
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
