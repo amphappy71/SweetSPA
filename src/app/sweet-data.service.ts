@@ -33,4 +33,40 @@ export class SweetDataService {
   return this.http.get('http://localhost:3000/api/workers')
   .map(res => res.json());
 }
+
+  addAdmin(newAdmin) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/admin', newAdmin, { headers: headers})
+    .map(res => res.json());
+  }
+
+  addProduct(newProduct) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/product', newProduct, { headers: headers})
+    .map(res => res.json());
+  }
+
+  addShopper(newShopper) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/shopper', newShopper, { headers: headers})
+    .map(res => res.json());
+  }
+
+  addTransaction(newTransaction) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/transaction', newTransaction, { headers: headers})
+    .map(res => res.json());
+  }
+
+  addWorker(newWorker) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/worker', newWorker, { headers: headers})
+    .map(res => res.json());
+  }
+
 }
