@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Admin } from '../admin';
+import { Product } from '../product';
+import { Shopper } from '../shopper';
+import { Transaction } from '../transaction';
+import { Worker } from '../worker';
 
 @Component({
   selector: 'app-samples',
@@ -14,9 +19,20 @@ export class SamplesComponent implements OnInit {
   styleToggleFlag = true;
   currentCSSClass = 'styleRed';
   inputColor = 'red';
-
-
   myStyle: {};
+
+  // add properties for rjxs samples
+
+  adminList: Admin[] = [];    // adminList is an array or Admin objects
+  productList: Product[] = [];
+  shopperList: Shopper[] = [];
+  transactionList: Transaction[] = [];
+  workerList: Worker[] = [];
+
+  getAdmins() {
+  // Todo after dataservice
+  }
+
 
   setCSSClass() {
     if (this.currentCSSClass === 'styleRed') {
