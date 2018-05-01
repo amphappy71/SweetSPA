@@ -5,12 +5,13 @@ import { Shopper } from '../shopper';
 import { Transaction } from '../transaction';
 import { Worker } from '../worker';
 import { SweetDataService } from '../sweet-data.service';
-import { workers } from 'cluster';
+
 
 @Component({
   selector: 'app-samples',
   templateUrl: './samples.component.html',
-  styleUrls: ['./samples.component.css']
+  styleUrls: ['./samples.component.css'],
+
 })
 export class SamplesComponent implements OnInit {
   familyMemebers: string[] = ['Dad', 'Mom', 'Andrew', 'Todd II'];
@@ -38,7 +39,7 @@ export class SamplesComponent implements OnInit {
     this.data.getAdmins()
     .subscribe( admins => {
       this.adminList = admins;
-      console.log('Admin data from Sweet DataService: ' + this.adminList);
+      console.dir('Admin data from Sweet DataService: ' + this.adminList);
     });
   }
 
@@ -113,6 +114,11 @@ export class SamplesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAdmins();
+    this.getProducts();
+    this.getShoppers();
+    this.getTransactions();
+    this.getWorkers();
   }
 
 }

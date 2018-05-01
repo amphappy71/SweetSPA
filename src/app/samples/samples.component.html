@@ -18,3 +18,31 @@
 
 <h2 [style.color]="inputColor">Change text color using NgModel</h2>
 <input type="text" [(ngModel)]="inputColor" name="" value="">
+
+<br>
+<br>
+<h2>Data from MongoDB Admins</h2>
+<div class="" *ngFor="let admin of adminList; let i=index">
+  {{i+1}}{{admin.email}}{{admin.password}}
+</div>
+<br><br>
+<h2>Data from MogoDB Products</h2>
+<div class="" *ngFor="let product of productList; let i=index">
+  {{i+1}}{{product.name}}{{product.description}}{{product.color}}{{product.cost}}{{product.imageURL}}{{product.price}}{{product.size}}{{product.inStock}}
+</div>
+<br><br>
+<h2>Data from MogoDB Shoppers</h2>
+<div class="" *ngFor="let shopper of shopperList; let i=index">
+  {{i+1}}{{shopper.firstName}}{{shopper.middleName}}{{shopper.lastName}}{{shopper.address1}}{{shopper.address2}}{{shopper.city}}{{shopper.state}}{{shopper.zip}}{{shopper.email}}{{shopper.phone}}{{shopper.password}}
+</div>
+<br><br>
+<h2>Data from MogoDB Transactions</h2>
+<div class="" *ngFor="let transaction of transactionList; let i=index">
+  {{i+1}}{{transaction.productID}}{{transaction.shopperID}}{{transaction.productPrice}}{{transaction.quantity}}{{transaction.saleState}}{{transaction.taxRate}}{{transaction.total}}
+</div>
+<br><br>
+<h2>Data from MogoDB Workers</h2>
+<div class="" *ngFor="let worker of workerList; let i=index">
+  {{i+1}}{{worker.email}}{{worker.zip}}{{worker.firstName}}{{worker.LastName}}
+</div>
+
