@@ -3,5 +3,5 @@ export class Worker {
   email: string;
   zip: string;
   firstName: string;
-  LastName: string;
+  lastName: string;
 }

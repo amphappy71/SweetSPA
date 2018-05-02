@@ -2,4 +2,56 @@
     <hr>
       <h1>Sweet T's Mission</h1>
       <hr>
-      </div>
+      <div class="text-center">
+      <h2>To advocate and create jobs for adults with congnitive disabilities!</h2>
+      <p>Our initial jobs will be offered in Johns Creek, GA.
+      Additional future sites will opened as the needs are identified.
+      If you are caregiver or family memeber of an adult with a congnitive disability,
+      and you would like to register for a job when the Sweet T's Crew Call comes to town,
+      please submit the following information, and we'll arrange for an interview
+  en Sweet T's comes to your area.</p>
+  </div>
+  <br>
+
+      <form class="form-signin just_form" #frm="ngForm" (ngSubmit)="addWorker(frm)">
+          <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Crew Registration</h1>
+          <p>Join the Crew!</p>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="email" class="form-control" placeholder="Email address" ngModel required autofocus>
+          <label for="email">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="zip" class="form-control" placeholder="Zip Code" ngModel required>
+          <label for="zip">Zip Code</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="firstName" class="form-control" placeholder="First Name" ngModel required>
+          <label for="firstName">First Name</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="lastName" class="form-control" placeholder="Last Name" ngModel required>
+          <label for="inputZip">Last Name</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+      </form>
+
+      <p><em>* Sweet T's - Stings and Things will never share or sell your information.</em></p>
+</div>
+
+<br>
+<br>
+
+<h2>Data from MogoDB Workers</h2>
+<div class="" *ngFor="let worker of workerList; let i=index">
+  {{i+1}}{{worker.email}}{{worker.zip}}{{worker.firstName}}{{worker.lastName}}
+</div>
+<br>
+<br>
