@@ -13,6 +13,7 @@ import { MissionComponent } from './mission/mission.component';
 import { AboutComponent } from './about/about.component';
 import { StoreComponent } from './store/store.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
   {path: 'mission', component: MissionComponent},
   {path: 'about', component: AboutComponent},
   {path: 'store', component: StoreComponent},
-  {path: 'checkout', component: CheckoutComponent}
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'admin', component: AdminComponent}
 
 ];
 
