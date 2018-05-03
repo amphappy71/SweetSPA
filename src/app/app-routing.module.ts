@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { StoreComponent } from './store/store.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 
 
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'store', component: StoreComponent},
   {path: 'checkout', component: CheckoutComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent},
+  {path: 'adminhome', component: AdminhomeComponent}
 
 ];
 

@@ -4,7 +4,7 @@
       <hr>
 </div> -->
 <div>
-<form class="form-signin just_form" #frm="ngForm" (ngSubmit)="checkAdmin()">
+<form class="form-signin just_form" #frm="ngForm" (ngSubmit)="checkAdmin(frm)">
     <div class="text-center mb-4">
     <h1 class="h3 mb-3 font-weight-normal tms">Login</h1>
     <p>Administration Portal</p>
@@ -19,6 +19,7 @@
     <input type="text" name="password" class="form-control" placeholder="Password" ngModel required>
     <label for="zip">Password</label>
   </div>
+  <div *ngIf=youMissed class="tms text-center">Bad Login</div>
 
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
   <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>

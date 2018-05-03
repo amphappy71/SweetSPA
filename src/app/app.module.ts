@@ -23,6 +23,7 @@ import { AboutComponent } from './about/about.component';
 import { MissionComponent } from './mission/mission.component';
 import { StoreComponent } from './store/store.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 
 
@@ -43,6 +44,7 @@ import { AdminComponent } from './admin/admin.component';
     MissionComponent,
     StoreComponent,
     AdminComponent,
+    AdminhomeComponent,
       ],
   imports: [
     BrowserModule,

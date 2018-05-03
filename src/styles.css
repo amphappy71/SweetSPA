@@ -9,6 +9,7 @@ h1{
   font-style: italic;
   background-color: lightcyan;
   font-weight: bold;
+  text-align: center;
 }
 
 .form-signin {
