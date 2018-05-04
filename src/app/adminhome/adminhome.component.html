@@ -3,7 +3,8 @@
     <h1>Administration Portal</h1>
     <hr>
 </div>
-<div class="container-fluid text-center">
+<div class="container-fluid text-center bg-light">
+  <div *ngIf=toggleProduct>
   <h2>Products</h2>
     <div class=btn-group>
     <button type="button" class="btn btn-success">
@@ -74,10 +75,13 @@
               {{prod.imageURL}}
           </div>
         </div>
+        <button type="button" class="btn btn-success" (click)=closeProducts()>
+            Close
+          </button>
     </div>
-
+    </div>
+    <div *ngIf=toggleWorker>
   <h2>Workers</h2>
-
   <div class=btn-group>
     <button type="button" class="btn btn-success">
       Create
@@ -92,36 +96,203 @@
       Delete
     </button>
     </div>
+    <div *ngIf=showWorker>
+        <div class="row">
+            <div class="col-md-3">
+                <h2>Email</h2>
+            </div>
+            <div class="col-md-3">
+                <h2>Zip</h2>
+            </div>
+            <div class="col-md-3">
+                <h2>First Name</h2>
+            </div>
+            <div class="col-md-3">
+                <h2>Last Name</h2>
+            </div>
+            </div>
+                 <hr>
+        <div class="row" *ngFor="let worker of workerList">
+          <div class="col-md-3 text-center">
+              {{worker.email}}
+          </div>
+          <div class="col-md-3 text-center">
+              {{worker.zip}}
+          </div>
+          <div class="col-md-3 text-center">
+              {{worker.firstName}}
+          </div>
+          <div class="col-md-3 text-center">
+              {{worker.lastName}}
+          </div>
+          </div>
+          <button type="button" class="btn btn-success" (click)=closeWorkers()>
+              Close
+            </button>
+    </div>
+    </div>
+    <div *ngIf=toggleShopper>
+        <h2>Shoppers</h2>
+    <div class=btn-group>
+    <button type="button" class="btn btn-success">
+      Create
+    </button>
+    <button type="button" class="btn btn-primary" (click)=getShoppers()>
+      Read
+    </button>
 
-  <h2>Transactions</h2>
-  <div class=btn-group>
+    <button type="button" class="btn btn-warning" (click)=addToCart()>
+      Update
+      </button>
+    <button type="button" class="btn btn-danger" (click)=addToCart()>
+      Delete
+        </button>
+    </div>
+    <div *ngIf=showShopper>
+        <div class="row">
+            <div class="col-md-1">
+                <h2>First Name</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Middle Name</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Last Name</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>Address 1</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Address 2</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>City</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>State</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Zip</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Email</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Phone</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Password</h2>
+            </div>
+          </div>
+                 <hr>
+        <div class="row" *ngFor="let shopper of shopperList">
+          <div class="col-md-1">
+              {{shopper.firstName}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.middleName}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.lastName}}
+          </div>
+          <div class="col-md-2">
+              {{shopper.address1}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.address2}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.city}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.state}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.zip}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.email}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.phone}}
+          </div>
+          <div class="col-md-1">
+              {{shopper.password}}
+          </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)=closeShoppers()>
+            Close
+          </button>
+      </div>
+    </div>
+    <div *ngIf=toggleTransaction>
+        <h2>Transactions</h2>
+    <div class=btn-group>
     <button type="button" class="btn btn-success">
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getTransactions()>
       Read
     </button>
+
     <button type="button" class="btn btn-warning" (click)=addToCart()>
       Update
       </button>
     <button type="button" class="btn btn-danger" (click)=addToCart()>
       Delete
-    </button>
+        </button>
     </div>
-
-  <h2>Shoppers</h2>
-  <div class=btn-group>
-    <button type="button" class="btn btn-success">
-    Create
-    </button>
-    <button type="button" class="btn btn-primary" (click)=getShoppers()>
-        Read
-    </button>
-    <button type="button" class="btn btn-warning" (click)=addToCart()>
-      Update
-    </button>
-    <button type="button" class="btn btn-danger" (click)=addToCart()>
-      Delete
-    </button>
+    <div *ngIf=showTransaction>
+        <div class="row">
+            <div class="col-md-2">
+                <h2>Product ID</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>Shopper ID</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>Product Price</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>Sale State</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Tax Rate</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Quantity</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>Total</h2>
+            </div>
+            </div>
+                 <hr>
+        <div class="row" *ngFor="let transaction of transactionList">
+          <div class="col-md-2">
+              {{transaction.productID}}
+          </div>
+          <div class="col-md-2">
+              {{transaction.shopperID}}
+          </div>
+          <div class="col-md-2">
+              {{transaction.productPrice}}
+          </div>
+          <div class="col-md-2">
+              {{transaction.saleState}}
+          </div>
+          <div class="col-md-1">
+              {{transaction.taxRate}}
+          </div>
+          <div class="col-md-1">
+              {{transaction.quantity}}
+          </div>
+          <div class="col-md-2">
+              {{transaction.total}}
+          </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)=closeTransactions()>
+            Close
+          </button>
+      </div>
     </div>
 </div>
