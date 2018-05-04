@@ -3,74 +3,125 @@
     <h1>Administration Portal</h1>
     <hr>
 </div>
-<div class="container">
+<div class="container-fluid text-center">
   <h2>Products</h2>
-  <div class=btn-group>
+    <div class=btn-group>
     <button type="button" class="btn btn-success">
-    Create
+      Create
     </button>
-    <button type="button" class="btn btn-primary" (click)=addToCart()>
-        Read
-        </button>
+    <button type="button" class="btn btn-primary" (click)=getProducts()>
+      Read
+    </button>
 
     <button type="button" class="btn btn-warning" (click)=addToCart()>
       Update
       </button>
     <button type="button" class="btn btn-danger" (click)=addToCart()>
-        Delete
+      Delete
         </button>
     </div>
-    <br>
+    <div *ngIf=showProduts>
+        <div class="row">
+            <div class="col-md-1">
+                <h2>Image</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>Name</h2>
+            </div>
+            <div class="col-md-3">
+                <h2>Description</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Size</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Color</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Cost</h2>
+            </div>
+            <div class="col-md-1">
+                <h2>Price</h2>
+            </div>
+            <div class="col-md-2">
+                <h2>ImageUrl</h2>
+            </div>
+          </div>
+                 <hr>
+        <div class="row" *ngFor="let prod of productList">
+          <div class="col-md-1">
+              <img class="" src={{prod.imageURL}} alt="Image Link Broken">
+          </div>
+          <div class="col-md-2">
+              {{prod.name}}
+          </div>
+          <div class="col-md-3">
+              {{prod.description}}
+          </div>
+          <div class="col-md-1">
+              {{prod.size}}
+          </div>
+          <div class="col-md-1">
+              {{prod.color}}
+          </div>
+          <div class="col-md-1">
+              {{prod.cost}}
+          </div>
+          <div class="col-md-1">
+              {{prod.price}}
+          </div>
+          <div class="col-md-2">
+              {{prod.imageURL}}
+          </div>
+        </div>
+    </div>
 
   <h2>Workers</h2>
 
   <div class=btn-group>
     <button type="button" class="btn btn-success">
-    Create
+      Create
     </button>
-    <button type="button" class="btn btn-primary" (click)=addToCart()>
-        Read
-        </button>
-
+    <button type="button" class="btn btn-primary" (click)=getWorkers()>
+      Read
+    </button>
     <button type="button" class="btn btn-warning" (click)=addToCart()>
       Update
-      </button>
+    </button>
     <button type="button" class="btn btn-danger" (click)=addToCart()>
-        Delete
-        </button>
+      Delete
+    </button>
     </div>
-    <br>
+
   <h2>Transactions</h2>
   <div class=btn-group>
     <button type="button" class="btn btn-success">
-    Create
+      Create
     </button>
-    <button type="button" class="btn btn-primary" (click)=addToCart()>
-        Read
-        </button>
-
+    <button type="button" class="btn btn-primary" (click)=getTransactions()>
+      Read
+    </button>
     <button type="button" class="btn btn-warning" (click)=addToCart()>
       Update
       </button>
     <button type="button" class="btn btn-danger" (click)=addToCart()>
-        Delete
-        </button>
+      Delete
+    </button>
     </div>
-    <br>
+
   <h2>Shoppers</h2>
   <div class=btn-group>
     <button type="button" class="btn btn-success">
     Create
     </button>
-    <button type="button" class="btn btn-primary" (click)=addToCart()>
+    <button type="button" class="btn btn-primary" (click)=getShoppers()>
         Read
-        </button>
-
+    </button>
     <button type="button" class="btn btn-warning" (click)=addToCart()>
       Update
-      </button>
+    </button>
     <button type="button" class="btn btn-danger" (click)=addToCart()>
-        Delete
-        </button>
+      Delete
+    </button>
     </div>
 </div>
