@@ -26,16 +26,60 @@ toggleProduct = true;
 toggleWorker = true;
 toggleTransaction = true;
 toggleShopper = true;
+toggleCreateShopper = false;
 
   constructor(private data: SweetDataService, private route: Router) { }
 
-  addToCart() {
-    // todo
+  // goBack() {
+  //   this.route.navigate(['adminhome']);
+  // }
+
+  createProduct() {}
+
+  createWorker() {}
+
+  showCreateShopper() {
+    this.toggleCreateShopper = true;
   }
 
-  goBack() {
-    this.route.navigate(['adminhome']);
+  createShopper(shopper) {
+    const newShopper: Shopper = {
+      address1: shopper.value.address1,
+      address2: shopper.value.address2,
+      city: shopper.value.city,
+      email: shopper.value.email,
+      firstName: shopper.value.firstName,
+      lastName: shopper.value.lastName,
+      middleName: shopper.value.middleName,
+      password: shopper.value.password,
+      phone: shopper.value.phone,
+      state: shopper.value.state,
+      zip: shopper.value.zip
+    };
+    this.data.addShopper(newShopper)
+    .subscribe(shop => {
+      console.log(shop);
+    });
+    this.toggleCreateShopper = false;
   }
+
+  createTransaction() {}
+
+  updateProduct() {}
+
+  updateWorker() {}
+
+  updateShopper() {}
+
+  updateTransaction() {}
+
+  deleteProduct() {}
+
+  deleteWorker() {}
+
+  deleteShopper() {}
+
+  deleteTransaction() {}
 
   closeProducts() {
     this.toggleProduct = true;

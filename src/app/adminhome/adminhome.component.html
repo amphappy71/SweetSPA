@@ -7,20 +7,21 @@
   <div *ngIf=toggleProduct>
   <h2>Products</h2>
     <div class=btn-group>
-    <button type="button" class="btn btn-success">
+    <button type="button" class="btn btn-success" (click)=createProduct()>
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getProducts()>
       Read
     </button>
 
-    <button type="button" class="btn btn-warning" (click)=addToCart()>
+    <button type="button" class="btn btn-warning" (click)=updateProduct()>
       Update
       </button>
-    <button type="button" class="btn btn-danger" (click)=addToCart()>
+    <button type="button" class="btn btn-danger" (click)=deleteProduct()>
       Delete
         </button>
     </div>
+
     <div *ngIf=showProduts>
         <div class="row">
             <div class="col-md-1">
@@ -83,16 +84,16 @@
     <div *ngIf=toggleWorker>
   <h2>Workers</h2>
   <div class=btn-group>
-    <button type="button" class="btn btn-success">
+    <button type="button" class="btn btn-success" (click)=createWorker()>
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getWorkers()>
       Read
     </button>
-    <button type="button" class="btn btn-warning" (click)=addToCart()>
+    <button type="button" class="btn btn-warning" (click)=updateWorker()>
       Update
     </button>
-    <button type="button" class="btn btn-danger" (click)=addToCart()>
+    <button type="button" class="btn btn-danger" (click)=deleteWorker()>
       Delete
     </button>
     </div>
@@ -134,19 +135,84 @@
     <div *ngIf=toggleShopper>
         <h2>Shoppers</h2>
     <div class=btn-group>
-    <button type="button" class="btn btn-success">
+    <button type="button" class="btn btn-success" (click)=showCreateShopper()>
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getShoppers()>
       Read
     </button>
 
-    <button type="button" class="btn btn-warning" (click)=addToCart()>
+    <button type="button" class="btn btn-warning" (click)=updateShopper()>
       Update
       </button>
-    <button type="button" class="btn btn-danger" (click)=addToCart()>
+    <button type="button" class="btn btn-danger" (click)=deleteShopper()>
       Delete
         </button>
+    </div>
+    <div *ngIf=toggleCreateShopper>
+        <form class="form-signin just_form" #shopper="ngForm" (ngSubmit)="createShopper(shopper)">
+            <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Shopper</h1>
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" name="firstName" class="form-control" placeholder="First Name" ngModel required autofocus>
+            <label for="firstName">First Name</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" name="middleName" class="form-control" placeholder="Middle Name" ngModel required>
+            <label for="middleName">Middle Name</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" name="lastName" class="form-control" placeholder="Last Name" ngModel required>
+            <label for="lastName">Last Name</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" name="address1" class="form-control" placeholder="Address 1" ngModel required>
+            <label for="address1">Address 1</label>
+          </div>
+
+          <div class="form-label-group">
+              <input type="text" name="address2" class="form-control" placeholder="Address 2" ngModel required>
+              <label for="address2">Address 2</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" name="city" class="form-control" placeholder="city" ngModel required>
+                <label for="city">City</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" name="state" class="form-control" placeholder="State" ngModel required>
+                <label for="address1">State</label>
+              </div>
+
+            <div class="form-label-group">
+                <input type="text" name="zip" class="form-control" placeholder="Zip Code" ngModel required>
+                <label for="zip">Zip Code</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" name="email" class="form-control" placeholder="Email Address" ngModel required>
+                <label for="email">Email Address</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" name="phone" class="form-control" placeholder="Phone" ngModel required>
+                <label for="address1">Phone</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" name="password" class="form-control" placeholder="Password" ngModel required>
+                <label for="Password">Password</label>
+            </div>
+
+          <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
+          <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+        </form>
     </div>
     <div *ngIf=showShopper>
         <div class="row">
@@ -228,17 +294,17 @@
     <div *ngIf=toggleTransaction>
         <h2>Transactions</h2>
     <div class=btn-group>
-    <button type="button" class="btn btn-success">
+    <button type="button" class="btn btn-success" (click)=createTransaction()>
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getTransactions()>
       Read
     </button>
 
-    <button type="button" class="btn btn-warning" (click)=addToCart()>
+    <button type="button" class="btn btn-warning" (click)=updateTransaction()>
       Update
       </button>
-    <button type="button" class="btn btn-danger" (click)=addToCart()>
+    <button type="button" class="btn btn-danger" (click)=deleteTransaction()>
       Delete
         </button>
     </div>
