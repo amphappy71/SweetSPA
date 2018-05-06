@@ -27,6 +27,7 @@ toggleWorker = true;
 toggleTransaction = true;
 toggleShopper = true;
 toggleCreateShopper = false;
+toggleCreateTransaction = false;
 
   constructor(private data: SweetDataService, private route: Router) { }
 
@@ -37,6 +38,10 @@ toggleCreateShopper = false;
   createProduct() {}
 
   createWorker() {}
+
+  showCreateTransaction() {
+    this.toggleCreateTransaction = true;
+  }
 
   showCreateShopper() {
     this.toggleCreateShopper = true;
@@ -59,11 +64,26 @@ toggleCreateShopper = false;
     this.data.addShopper(newShopper)
     .subscribe(shop => {
       console.log(shop);
+      this.toggleCreateShopper = false;
     });
-    this.toggleCreateShopper = false;
   }
 
-  createTransaction() {}
+  createTransaction(transaction) {
+    const newTransaction: Transaction = {
+      productID: transaction.value.productID,
+      shopperID: transaction.value.shopperID,
+      productPrice: transaction.value.productPrice,
+      saleState: transaction.value.saleState,
+      taxRate: transaction.value.taxRate,
+      quantity: transaction.value.quantity,
+      total: transaction.value.total
+       };
+    this.data.addTransaction(newTransaction)
+    .subscribe(trans => {
+      console.log(trans);
+      this.toggleCreateTransaction = false;
+    });
+  }
 
   updateProduct() {}
 

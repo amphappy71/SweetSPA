@@ -294,7 +294,7 @@
     <div *ngIf=toggleTransaction>
         <h2>Transactions</h2>
     <div class=btn-group>
-    <button type="button" class="btn btn-success" (click)=createTransaction()>
+    <button type="button" class="btn btn-success" (click)=showCreateTransaction()>
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getTransactions()>
@@ -308,6 +308,51 @@
       Delete
         </button>
     </div>
+    <div *ngIf=toggleCreateTransaction>
+      <form class="form-signin just_form" #transaction="ngForm" (ngSubmit)="createTransaction(transaction)">
+          <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Transaction</h1>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="productID" class="form-control" placeholder="ProductID" ngModel required autofocus>
+          <label for="productID">Product ID</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="shopperID" class="form-control" placeholder="shopperID" ngModel required>
+          <label for="shopperID">Shopper ID</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="saleState" class="form-control" placeholder="saleState" ngModel required>
+          <label for="saleState">Sale State</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="taxRate" class="form-control" placeholder="taxRate" ngModel required>
+          <label for="taxRate">Tax Rate</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="text" name="quantity" class="form-control" placeholder="quantity" ngModel required>
+            <label for="quantity">Quantity</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" name="productPrice" class="form-control" placeholder="productPrice" ngModel required>
+            <label for="productPrice">Product Price</label>
+          </div>
+
+          <div class="form-label-group">
+              <input type="text" name="total" class="form-control" placeholder="total" ngModel required>
+              <label for="total">Total</label>
+          </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+      </form>
+  </div>
     <div *ngIf=showTransaction>
         <div class="row">
             <div class="col-md-2">
