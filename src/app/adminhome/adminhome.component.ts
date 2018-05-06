@@ -28,6 +28,16 @@ toggleTransaction = true;
 toggleShopper = true;
 toggleCreateShopper = false;
 toggleCreateTransaction = false;
+toggleCreateWorker = false;
+toggleCreateProduct = false;
+toggleUpdateShopper = false;
+toggleUpdateTransaction = false;
+toggleUpdateWorker = false;
+toggleUpdateProduct = false;
+toggleDeleteShopper = false;
+toggleDeleteTransaction = false;
+toggleDeleteWorker = false;
+toggleDeleteProduct = false;
 
   constructor(private data: SweetDataService, private route: Router) { }
 
@@ -35,9 +45,13 @@ toggleCreateTransaction = false;
   //   this.route.navigate(['adminhome']);
   // }
 
-  createProduct() {}
+  showCreateProduct() {
+    this.toggleCreateProduct = true;
+  }
 
-  createWorker() {}
+  showCreateWorker() {
+    this.toggleCreateWorker = true;
+  }
 
   showCreateTransaction() {
     this.toggleCreateTransaction = true;
@@ -45,6 +59,70 @@ toggleCreateTransaction = false;
 
   showCreateShopper() {
     this.toggleCreateShopper = true;
+  }
+
+  showUpdateProduct() {
+    this.toggleUpdateProduct = true;
+  }
+
+  showUpdateWorker() {
+    this.toggleUpdateWorker = true;
+  }
+
+  showUpdateTransaction() {
+    this.toggleUpdateTransaction = true;
+  }
+
+  showUpdateShopper() {
+    this.toggleUpdateShopper = true;
+  }
+
+  showDeleteProduct() {
+    this.toggleDeleteProduct = true;
+  }
+
+  showDeleteWorker() {
+    this.toggleDeleteWorker = true;
+  }
+
+  showDeleteTransaction() {
+    this.toggleDeleteTransaction = true;
+  }
+
+  showDeleteShopper() {
+    this.toggleDeleteShopper = true;
+  }
+
+  createProduct(product) {
+    const newProduct: Product = {
+      name: product.value.name,
+      description: product.value.description,
+      cost: product.value.cost,
+      price: product.value.price,
+      size: product.value.size,
+      color: product.value.color,
+      imageURL: product.value.color,
+      inStock: product.value.inStock
+    };
+    this.data.addProduct(newProduct)
+    .subscribe(prod => {
+      console.log(prod);
+      this.toggleCreateProduct = false;
+    });
+  }
+
+  createWorker(worker) {
+    const newWorker: Worker = {
+      email: worker.value.email,
+      zip: worker.value.zip,
+      firstName: worker.value.zip,
+      lastName: worker.value.lastName
+    };
+    this.data.addWorker(newWorker)
+    .subscribe(work => {
+      console.log(work);
+      this.toggleCreateWorker = false;
+    });
   }
 
   createShopper(shopper) {
