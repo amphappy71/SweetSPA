@@ -18,6 +18,10 @@ productList: Product[] = [];
 workerList: Worker[] = [];
 transactionList: Transaction[] = [];
 shopperList: Shopper[] = [];
+selectedProduct;
+selectedShopper;
+selectedTransaction;
+selectedWorker;
 showProduts = false;
 showWorker = false;
 showTransaction = false;
@@ -38,12 +42,31 @@ toggleDeleteShopper = false;
 toggleDeleteTransaction = false;
 toggleDeleteWorker = false;
 toggleDeleteProduct = false;
+toggleEditShopper = false;
+toggleEditTransaction = false;
+toggleEditWorker = false;
+toggleEditProduct = false;
 
   constructor(private data: SweetDataService, private route: Router) { }
 
   // goBack() {
   //   this.route.navigate(['adminhome']);
   // }
+  showEditShopper(shopper) {
+    this.toggleEditShopper = true;
+  }
+
+  showEditWorker(worker) {
+    this.toggleEditWorker = true;
+  }
+
+  showEditTransaction(transaction) {
+    this.toggleEditTransaction = true;
+  }
+
+  showEditProduct(product) {
+    this.toggleEditProduct = true;
+  }
 
   showCreateProduct() {
     this.toggleCreateProduct = true;
@@ -77,20 +100,24 @@ toggleDeleteProduct = false;
     this.toggleCreateTransaction = false;
   }
 
-  showUpdateProduct() {
+  showUpdateProduct(product) {
     this.toggleUpdateProduct = true;
+    this.selectedProduct = product;
   }
 
-  showUpdateWorker() {
+  showUpdateWorker(worker) {
     this.toggleUpdateWorker = true;
+    this.selectedWorker = worker;
   }
 
-  showUpdateTransaction() {
+  showUpdateTransaction(transaction) {
     this.toggleUpdateTransaction = true;
+    this.selectedTransaction = transaction;
   }
 
-  showUpdateShopper() {
+  showUpdateShopper(shopper) {
     this.toggleUpdateShopper = true;
+    this.selectedShopper = shopper;
   }
 
   showDeleteProduct() {
@@ -179,21 +206,128 @@ toggleDeleteProduct = false;
     });
   }
 
-  updateProduct() {}
+  updateProduct(editProduct) {
+    const newProduct: Product = {
+      _id: this.selectedProduct,
+      name: editProduct.value.name,
+      description: editProduct.value.description,
+      cost: editProduct.value.cost,
+      price: editProduct.value.price,
+      size: editProduct.value.size,
+      color: editProduct.value.color,
+      imageURL: editProduct.value.imageURL,
+      inStock: editProduct.value.inStock
+    };
+    this.data.updateProduct(newProduct)
+    .subscribe(res => {
+      console.log('Original product to be updated:' + res);
+      this.getProducts();
+    });
+  }
 
-  updateWorker() {}
+  updateWorker(editWorker) {
+    const newWorker: Worker = {
+      email: editWorker.value.email,
+      zip: editWorker.value.zip,
+      firstName: editWorker.value.firstName,
+      lastName: editWorker.value.lastName
+    };
+    this.data.updateWorker(newWorker)
+    .subscribe(res => {
+      console.log('Original worker to be updated:' + res);
+      this.getWorkers();
+    });
+  }
 
-  updateShopper() {}
+  updateShopper(editShopper) {
+    const newShopper: Shopper = {
+      address1: editShopper.value.address1,
+      address2: editShopper.value.address2,
+      city: editShopper.value.city,
+      email: editShopper.value.email,
+      firstName: editShopper.value.firstName,
+      lastName: editShopper.value.lastName,
+      middleName: editShopper.value.middleName,
+      password: editShopper.value.password,
+      phone: editShopper.value.phone,
+      state: editShopper.value.state,
+      zip: editShopper.value.zip
+    };
+    this.data.updateWorker(newShopper)
+    .subscribe(res => {
+      console.log('Original Shopper to be updated:' + res);
+      this.getShoppers();
+    });
+  }
 
-  updateTransaction() {}
+  updateTransaction(editTransaction) {
+    const newTransaction: Transaction = {
+      productID: editTransaction.value.productID,
+      shopperID: editTransaction.value.shopperID,
+      productPrice: editTransaction.value.productPrice,
+      saleState: editTransaction.value.saleState,
+      taxRate: editTransaction.value.taxRate,
+      quantity: editTransaction.value.quantity,
+      total: editTransaction.value.total
+       };
+    this.data.updateTransaction(newTransaction)
+    .subscribe(res => {
+      console.log('Original Transaction to be updated:' + res);
+      this.getTransactions();
+    });
+  }
 
-  deleteProduct() {}
+  deleteProduct(id) {
+    this.data.deleteProduct(id)
+    .subscribe(data => {
+      if (data.n === 1) {
+        for (let i = 0; i < this.productList.length; i++) {
+          if (id === this.productList[i]._id) {
+            this.productList.splice(i, 1);
+          }
+        }
+      }
+    });
+  }
 
-  deleteWorker() {}
+  deleteWorker(id) {
+    this.data.deleteWorker(id)
+    .subscribe(data => {
+      if (data.n === 1) {
+        for (let i = 0; i < this.workerList.length; i++) {
+          if (id === this.workerList[i]._id) {
+            this.workerList.splice(i, 1);
+          }
+        }
+      }
+    });
+  }
 
-  deleteShopper() {}
+  deleteShopper(id) {
+    this.data.deleteShopper(id)
+    .subscribe(data => {
+      if (data.n === 1) {
+        for (let i = 0; i < this.shopperList.length; i++) {
+          if (id === this.shopperList[i]._id) {
+            this.shopperList.splice(i, 1);
+          }
+        }
+      }
+    });
+  }
 
-  deleteTransaction() {}
+  deleteTransaction(id) {
+    this.data.deleteProduct(id)
+    .subscribe(data => {
+      if (data.n === 1) {
+        for (let i = 0; i < this.transactionList.length; i++) {
+          if (id === this.transactionList[i]._id) {
+            this.transactionList.splice(i, 1);
+          }
+        }
+      }
+    });
+  }
 
   closeProducts() {
     this.toggleProduct = true;
