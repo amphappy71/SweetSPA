@@ -69,4 +69,24 @@ export class SweetDataService {
     .map(res => res.json());
   }
 
+  deleteProduct(id) {
+    return this.http.delete('http://localhost:3000/api/product' + id)
+    .map(res => res.json());
+  }
+
+  deleteWorker(id) {
+    return this.http.delete('http://localhost:3000/api/worker' + id)
+    .map(res => res.json());
+  }
+
+  deleteTransaction(id) {
+    return this.http.delete('http://localhost:3000/api/transaction' + id)
+    .map(res => res.json());
+  }
+
+  deleteShopper(id) {
+    return this.http.delete('http://localhost:3000/api/shopper' + id)
+    .map(res => res.json());
+  }
 }
+
