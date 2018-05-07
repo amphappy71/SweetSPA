@@ -61,6 +61,22 @@ toggleDeleteProduct = false;
     this.toggleCreateShopper = true;
   }
 
+  hideCreateWorker() {
+    this.toggleCreateWorker = false;
+  }
+
+  hideCreateShopper() {
+    this.toggleCreateShopper = false;
+  }
+
+  hideCreateProduct() {
+    this.toggleCreateProduct = false;
+  }
+
+  hideCreateTransaction() {
+    this.toggleCreateTransaction = false;
+  }
+
   showUpdateProduct() {
     this.toggleUpdateProduct = true;
   }
@@ -101,7 +117,7 @@ toggleDeleteProduct = false;
       price: product.value.price,
       size: product.value.size,
       color: product.value.color,
-      imageURL: product.value.color,
+      imageURL: product.value.imageURL,
       inStock: product.value.inStock
     };
     this.data.addProduct(newProduct)
@@ -115,7 +131,7 @@ toggleDeleteProduct = false;
     const newWorker: Worker = {
       email: worker.value.email,
       zip: worker.value.zip,
-      firstName: worker.value.zip,
+      firstName: worker.value.firstName,
       lastName: worker.value.lastName
     };
     this.data.addWorker(newWorker)
