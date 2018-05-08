@@ -4,68 +4,106 @@
     <hr>
 </div>
 <div class="container-fluid text-center bg-light">
-  <div *ngIf=toggleProduct>
-  <h2>Products</h2>
+
+<div *ngIf=toggleTransaction>
+    <h2>Transactions</h2>
+<div class=btn-group>
+<button type="button" class="btn btn-success" (click)=showCreateTransaction()>
+  Create
+</button>
+<button type="button" class="btn btn-primary" (click)=getTransactions()>
+  Read
+</button>
+
+
+</div>
+</div>
+
+<div *ngIf=toggleShopper>
+    <h2>Shoppers</h2>
     <div class=btn-group>
+        <button type="button" class="btn btn-success" (click)=showCreateShopper()>
+        Create
+        </button>
+        <button type="button" class="btn btn-primary" (click)=getShoppers()>
+        Read
+        </button>
+   </div>
+</div>
+
+    <div *ngIf=toggleWorker>
+        <h2>Workers</h2>
+        <div class=btn-group>
+        <button type="button" class="btn btn-success" (click)=showCreateWorker()>
+          Create
+        </button>
+        <button type="button" class="btn btn-primary" (click)=getWorkers()>
+          Read
+        </button>
+
+        </div>
+      </div>
+  <div *ngIf=toggleProduct>
+      <h2>Products</h2>
+        <div class=btn-group>
     <button type="button" class="btn btn-success" (click)=showCreateProduct()>
       Create
     </button>
     <button type="button" class="btn btn-primary" (click)=getProducts()>
       Read
     </button>
+       </div>
+  </div>
 
-
-    </div>
     <div *ngIf=toggleCreateProduct>
       <form class="form-signin just_form" #product="ngForm" (ngSubmit)="createProduct(product)">
           <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Product</h1>
-        </div>
+          </div>
 
-        <div class="form-label-group">
+          <div class="form-label-group">
           <input type="text" name="name" class="form-control" placeholder="name" ngModel required autofocus>
           <label for="name">Name</label>
-        </div>
+          </div>
 
-        <div class="form-label-group">
+          <div class="form-label-group">
           <input type="text" name="description" class="form-control" placeholder="description" ngModel required>
           <label for="description">Description</label>
-        </div>
+          </div>
 
-        <div class="form-label-group">
+          <div class="form-label-group">
           <input type="text" name="price" class="form-control" placeholder="price" ngModel required>
           <label for="price">Price</label>
-        </div>
+          </div>
 
-        <div class="form-label-group">
+          <div class="form-label-group">
           <input type="text" name="cost" class="form-control" placeholder="cost" ngModel required>
           <label for="cost">Cost</label>
-        </div>
+          </div>
 
-        <div class="form-label-group">
+          <div class="form-label-group">
           <input type="text" name="size" class="form-control" placeholder="size" ngModel required>
           <label for="size">Size</label>
-        </div>
-
-        <div class="form-label-group">
-            <input type="text" name="color" class="form-control" placeholder="color" ngModel required>
-            <label for="color">Color</label>
           </div>
 
           <div class="form-label-group">
-            <input type="text" name="imageURL" class="form-control" placeholder="imageURL" ngModel required>
-            <label for="imageURL">Image URL</label>
+          <input type="text" name="color" class="form-control" placeholder="color" ngModel required>
+          <label for="color">Color</label>
           </div>
 
           <div class="form-label-group">
-              <input type="text" name="inStock" class="form-control" placeholder="inStock" ngModel required>
-              <label for="inStock">In Stock</label>
+          <input type="text" name="imageURL" class="form-control" placeholder="imageURL" ngModel required>
+          <label for="imageURL">Image URL</label>
+          </div>
+
+          <div class="form-label-group">
+          <input type="text" name="inStock" class="form-control" placeholder="inStock" ngModel required>
+          <label for="inStock">In Stock</label>
           </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideCreateProduct()>Cancel</button>
 
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
   </div>
 
@@ -73,7 +111,7 @@
     <form class="form-signin just_form" #prod="ngForm" (ngSubmit)="updateProduct(prod)">
       <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Product</h1>
-    </div>
+      </div>
 
     <div class="form-label-group">
       <input type="text" name="name" class="form-control" placeholder="name" [ngModel]="selectedProduct.name" required autofocus>
@@ -103,28 +141,25 @@
     <div class="form-label-group">
         <input type="text" name="color" class="form-control" placeholder="color" [ngModel]="selectedProduct.color" required>
         <label for="color">Color</label>
-      </div>
+    </div>
 
-      <div class="form-label-group">
+    <div class="form-label-group">
         <input type="text" name="imageURL" class="form-control" placeholder="imageURL" [ngModel]="selectedProduct.imageURL" required>
         <label for="imageURL">Image URL</label>
-      </div>
+    </div>
 
-      <div class="form-label-group">
+    <div class="form-label-group">
           <input type="text" name="inStock" class="form-control" placeholder="inStock" [ngModel]="selectedProduct.inStock" required>
           <label for="inStock">In Stock</label>
-      </div>
+    </div>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-    <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="togglerEditProduct()">Cancel</button>
+    <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideUpdateProduct()">Cancel</button>
 
-    <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
-  </form>
+   </form>
 </div>
 
-
-
-    <div *ngIf=showProduts>
+<div *ngIf=showProduct>
       <div class="row">
           <div class="col-md-1">
               <h2>Image</h2>
@@ -180,35 +215,25 @@
 
         <div class="col-md-1">
           {{prod.inStock}}
-      </div>
-
+        </div>
+        <div>
         <button type="button" class="btn btn-warning" (click)=showEditProduct(prod)>
           Update
           </button>
         <button type="button" class="btn btn-danger" (click)=deleteProduct(prod._id)>
           Delete
-            </button>
-
+        </button>
+        </div>
       </div>
       <button type="button" class="btn btn-success" (click)=closeProducts()>
           Close
-        </button>
-
-  </div>
+      </button>
   </div>
 
-  <div *ngIf=toggleWorker>
-  <h2>Workers</h2>
-  <div class=btn-group>
-    <button type="button" class="btn btn-success" (click)=showCreateWorker()>
-      Create
-    </button>
-    <button type="button" class="btn btn-primary" (click)=getWorkers()>
-      Read
-    </button>
 
-    </div>
-    <div *ngIf=toggleEditWorker>
+
+
+<div *ngIf=toggleEditWorker>
       <form class="form-signin just_form" #worker="ngForm" (ngSubmit)="updateWorker(worker)">
           <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Worker</h1>
@@ -222,7 +247,7 @@
         <div class="form-label-group">
           <input type="text" name="zip" class="form-control" placeholder="zip" [ngModel]="selectedWorker.zip" required>
           <label for="zip">Zip</label>
-        </div>
+        </div>c
 
         <div class="form-label-group">
           <input type="text" name="firstName" class="form-control" placeholder="firstName" [ngModel]="selectedWorker.firstName" required>
@@ -235,13 +260,11 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=togglerEditWorker()>Cancel</button>
-
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideUpdateWorker()>Cancel</button>
       </form>
-  </div>
+</div>
 
-    <div *ngIf=toggleCreateWorker>
+<div *ngIf=toggleCreateWorker>
       <form class="form-signin just_form" #worker="ngForm" (ngSubmit)="createWorker(worker)">
           <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Worker</h1>
@@ -253,6 +276,7 @@
         </div>
 
         <div class="form-label-group">
+
           <input type="text" name="zip" class="form-control" placeholder="zip" ngModel required>
           <label for="zip">Zip</label>
         </div>
@@ -269,16 +293,15 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Update</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideCreateWorker()">Cancel</button>
-
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
-  </div>
-    <div *ngIf=showWorker>
+</div>
+
+ <div *ngIf=showWorker>
         <div class="row">
             <div class="col-md-3">
                 <h2>Email</h2>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <h2>Zip</h2>
             </div>
             <div class="col-md-3">
@@ -286,10 +309,10 @@
             </div>
             <div class="col-md-3">
                 <h2>Last Name</h2>
-            </div>
-            </div>
-                 <hr>
-        <div class="row" *ngFor="let worker of workerList">
+           </div>
+      </div>
+      <hr>
+     <div class="row" *ngFor="let worker of workerList">
           <div class="col-md-3 text-center">
               {{worker.email}}
           </div>
@@ -302,34 +325,24 @@
           <div class="col-md-3 text-center">
               {{worker.lastName}}
           </div>
-          <div class="col-md-1 btn-group">
-          <button type="button" class="btn btn-warning" (click)="showEditWorker(worker)">
-            Update
-          </button>
-          <button type="button" class="btn btn-danger" (click)="deleteWorker(worker._id)">
-            Delete
-          </button>
-          </div>
-          </div>
+            <div class="col-md-1 btn-group">
+            <button type="button" class="btn btn-warning" (click)="showEditWorker(worker)">
+              Update
+            </button>
+            <button type="button" class="btn btn-danger" (click)="deleteWorker(worker._id)">
+              Delete
+            </button>
+            </div>
+
           <button type="button" class="btn btn-success" (click)=closeWorkers()>
               Close
-            </button>
-
+          </button>
+      </div>
     </div>
-    </div>
-    <div *ngIf=toggleShopper>
-        <h2>Shoppers</h2>
-    <div class=btn-group>
-    <button type="button" class="btn btn-success" (click)=showCreateShopper()>
-      Create
-    </button>
-    <button type="button" class="btn btn-primary" (click)=getShoppers()>
-      Read
-    </button>
 
 
-    </div>
-    <div *ngIf=toggleEditShopper>
+
+  <div *ngIf=toggleEditShopper>
       <form class="form-signin just_form" #shopper="ngForm" (ngSubmit)="updateShopper(shopper)">
           <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Shopper</h1>
@@ -358,45 +371,44 @@
         <div class="form-label-group">
             <input type="text" name="address2" class="form-control" placeholder="Address 2" [ngModel]="selectedShopper.address2" required>
             <label for="address2">Address 2</label>
-          </div>
+        </div>
 
-          <div class="form-label-group">
+        <div class="form-label-group">
               <input type="text" name="city" class="form-control" placeholder="city" [ngModel]="selectedShopper.city" required>
               <label for="city">City</label>
-          </div>
+        </div>
 
-          <div class="form-label-group">
+        <div class="form-label-group">
               <input type="text" name="state" class="form-control" placeholder="State" [ngModel]="selectedShopper.state" required>
               <label for="address1">State</label>
-            </div>
+        </div>
 
-          <div class="form-label-group">
+        <div class="form-label-group">
               <input type="text" name="zip" class="form-control" placeholder="Zip Code" [ngModel]="selectedShopper.zip" required>
               <label for="zip">Zip Code</label>
-          </div>
+        </div>
 
-          <div class="form-label-group">
+        <div class="form-label-group">
               <input type="text" name="email" class="form-control" placeholder="Email Address" [ngModel]="selectedShopper.email" required>
               <label for="email">Email Address</label>
-          </div>
+        </div>
 
-          <div class="form-label-group">
+        <div class="form-label-group">
               <input type="text" name="phone" class="form-control" placeholder="Phone" [ngModel]="selectedShopper.phone" required>
               <label for="address1">Phone</label>
-          </div>
+        </div>
 
-          <div class="form-label-group">
+        <div class="form-label-group">
               <input type="text" name="password" class="form-control" placeholder="Password" [ngModel]="selectedShopper.password" required>
               <label for="Password">Password</label>
-          </div>
+        </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="togglerEditShopper()">Cancel</button>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideUpdateShopper()">Cancel</button>
 
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
   </div>
-    <div *ngIf=toggleCreateShopper>
+<div *ngIf=toggleCreateShopper>
         <form class="form-signin just_form" #shopper="ngForm" (ngSubmit)="createShopper(shopper)">
             <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Shopper</h1>
@@ -425,45 +437,46 @@
           <div class="form-label-group">
               <input type="text" name="address2" class="form-control" placeholder="Address 2" ngModel required>
               <label for="address2">Address 2</label>
-            </div>
+          </div>
 
-            <div class="form-label-group">
+          <div class="form-label-group">
                 <input type="text" name="city" class="form-control" placeholder="city" ngModel required>
                 <label for="city">City</label>
-            </div>
+          </div>
 
-            <div class="form-label-group">
+          <div class="form-label-group">
                 <input type="text" name="state" class="form-control" placeholder="State" ngModel required>
                 <label for="address1">State</label>
-              </div>
+          </div>
 
-            <div class="form-label-group">
+          <div class="form-label-group">
                 <input type="text" name="zip" class="form-control" placeholder="Zip Code" ngModel required>
                 <label for="zip">Zip Code</label>
-            </div>
+          </div>
 
-            <div class="form-label-group">
+          <div class="form-label-group">
                 <input type="text" name="email" class="form-control" placeholder="Email Address" ngModel required>
                 <label for="email">Email Address</label>
-            </div>
+          </div>
 
-            <div class="form-label-group">
+          <div class="form-label-group">
                 <input type="text" name="phone" class="form-control" placeholder="Phone" ngModel required>
                 <label for="address1">Phone</label>
-            </div>
+          </div>
 
-            <div class="form-label-group">
+          <div class="form-label-group">
                 <input type="text" name="password" class="form-control" placeholder="Password" ngModel required>
                 <label for="Password">Password</label>
-            </div>
+          </div>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
           <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideCreateShopper()>Cancel</button>
 
           <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
         </form>
-    </div>
-    <div *ngIf=showShopper>
+  </div>
+
+<div *ngIf=showShopper>
         <div class="row">
             <div class="col-md-1">
                 <h2>First Name</h2>
@@ -498,12 +511,13 @@
             <div class="col-md-1">
                 <h2>Password</h2>
             </div>
-          </div>
+       </div>
                  <hr>
-        <div class="row" *ngFor="let shopper of shopperList">
-          <div class="col-md-1">
+
+    <div class="row" *ngFor="let shopper of shopperList">
+            <div class="col-md-1">
               {{shopper.firstName}}
-          </div>
+           </div>
           <div class="col-md-1">
               {{shopper.middleName}}
           </div>
@@ -541,30 +555,19 @@
             <button type="button" class="btn btn-primary" (click)="deleteShopper(shopper._id)">
               Delete
             </button>
-
-
-            </div>
-
-        </div>
+          </div>
+     </div>
         <button type="button" class="btn btn-success" (click)=closeShoppers()>
             Close
           </button>
-
-      </div>
-    </div>
-    <div *ngIf=toggleTransaction>
-        <h2>Transactions</h2>
-    <div class=btn-group>
-    <button type="button" class="btn btn-success" (click)=showCreateTransaction()>
-      Create
-    </button>
-    <button type="button" class="btn btn-primary" (click)=getTransactions()>
-      Read
-    </button>
+  </div>
 
 
-    </div>
-    <div *ngIf=toggleEditTransaction>
+
+
+
+
+ <div *ngIf=toggleEditTransaction>
       <form class="form-signin just_form" #transaction="ngForm" (ngSubmit)="updateTransaction(transaction)">
           <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Transaction</h1>
@@ -606,12 +609,13 @@
           </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=togglerEditTransaction()>Cancel</button>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideUpdateTransaction()>Cancel</button>
 
         <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
   </div>
-    <div *ngIf=toggleCreateTransaction>
+
+ <div *ngIf=toggleCreateTransaction>
       <form class="form-signin just_form" #transaction="ngForm" (ngSubmit)="createTransaction(transaction)">
           <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Transaction</h1>
@@ -658,6 +662,7 @@
         <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
   </div>
+
     <div *ngIf=showTransaction>
         <div class="row">
             <div class="col-md-2">
@@ -718,4 +723,3 @@
 
       </div>
     </div>
-</div>
