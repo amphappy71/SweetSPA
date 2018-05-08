@@ -259,6 +259,7 @@ toggleEditProduct = false;
     this.data.updateShopper(newShopper)
     .subscribe(res => {
       console.log('Original Shopper to be updated:' + res);
+      this.toggleEditShopper = false;
       this.getShoppers();
     });
   }
@@ -277,6 +278,7 @@ toggleEditProduct = false;
     this.data.updateTransaction(newTransaction)
     .subscribe(res => {
       console.log('Original Transaction to be updated:' + res);
+      this.toggleEditTransaction = false;
       this.getTransactions();
     });
   }
@@ -321,7 +323,7 @@ toggleEditProduct = false;
   }
 
   deleteTransaction(id) {
-    this.data.deleteProduct(id)
+    this.data.deleteTransaction(id)
     .subscribe(data => {
       if (data.n === 1) {
         for (let i = 0; i < this.transactionList.length; i++) {
