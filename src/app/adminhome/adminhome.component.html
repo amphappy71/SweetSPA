@@ -109,52 +109,53 @@
 
   <div *ngIf=toggleEditProduct>
     <form class="form-signin just_form" #prod="ngForm" (ngSubmit)="updateProduct(prod)">
-      <div class="text-center mb-4">
-      <h1 class="h3 mb-3 font-weight-normal">Product</h1>
-      </div>
 
-    <div class="form-label-group">
-      <input type="text" name="name" class="form-control" placeholder="name" [ngModel]="selectedProduct.name" required autofocus>
-      <label for="name">Name</label>
-    </div>
+        <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Product</h1>
+        </div>
+
+        <div class="form-label-group">
+        <input type="text" name="name" class="form-control" placeholder="name" [ngModel]="selectedProduct.name" required autofocus>
+        <label for="name">Name</label>
+        </div>
 
-    <div class="form-label-group">
-      <input type="text" name="description" class="form-control" placeholder="description" [ngModel]="selectedProduct.description" required>
-      <label for="description">Description</label>
-    </div>
+        <div class="form-label-group">
+        <input type="text" name="description" class="form-control" placeholder="description" [ngModel]="selectedProduct.description" required>
+        <label for="description">Description</label>
+        </div>
 
-    <div class="form-label-group">
-      <input type="text" name="price" class="form-control" placeholder="price" [ngModel]="selectedProduct.price" required>
-      <label for="price">Price</label>
-    </div>
+        <div class="form-label-group">
+        <input type="text" name="price" class="form-control" placeholder="price" [ngModel]="selectedProduct.price" required>
+        <label for="price">Price</label>
+        </div>
 
-    <div class="form-label-group">
-      <input type="text" name="cost" class="form-control" placeholder="cost" [ngModel]="selectedProduct.cost" required>
-      <label for="cost">Cost</label>
-    </div>
+        <div class="form-label-group">
+        <input type="text" name="cost" class="form-control" placeholder="cost" [ngModel]="selectedProduct.cost" required>
+        <label for="cost">Cost</label>
+        </div>
 
-    <div class="form-label-group">
-      <input type="text" name="size" class="form-control" placeholder="size" [ngModel]="selectedProduct.size" required>
-      <label for="size">Size</label>
-    </div>
+        <div class="form-label-group">
+        <input type="text" name="size" class="form-control" placeholder="size" [ngModel]="selectedProduct.size" required>
+        <label for="size">Size</label>
+        </div>
 
-    <div class="form-label-group">
+        <div class="form-label-group">
         <input type="text" name="color" class="form-control" placeholder="color" [ngModel]="selectedProduct.color" required>
         <label for="color">Color</label>
-    </div>
+        </div>
 
-    <div class="form-label-group">
+        <div class="form-label-group">
         <input type="text" name="imageURL" class="form-control" placeholder="imageURL" [ngModel]="selectedProduct.imageURL" required>
         <label for="imageURL">Image URL</label>
-    </div>
+        </div>
 
-    <div class="form-label-group">
-          <input type="text" name="inStock" class="form-control" placeholder="inStock" [ngModel]="selectedProduct.inStock" required>
-          <label for="inStock">In Stock</label>
-    </div>
+        <div class="form-label-group">
+        <input type="text" name="inStock" class="form-control" placeholder="inStock" [ngModel]="selectedProduct.inStock" required>
+        <label for="inStock">In Stock</label>
+        </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-    <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideUpdateProduct()">Cancel</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideUpdateProduct()">Cancel</button>
 
    </form>
 </div>
@@ -247,7 +248,7 @@
         <div class="form-label-group">
           <input type="text" name="zip" class="form-control" placeholder="zip" [ngModel]="selectedWorker.zip" required>
           <label for="zip">Zip</label>
-        </div>c
+        </div>
 
         <div class="form-label-group">
           <input type="text" name="firstName" class="form-control" placeholder="firstName" [ngModel]="selectedWorker.firstName" required>
@@ -291,7 +292,7 @@
           <label for="lastName">Last Name</label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Update</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideCreateWorker()">Cancel</button>
       </form>
 </div>
@@ -332,13 +333,14 @@
             <button type="button" class="btn btn-danger" (click)="deleteWorker(worker._id)">
               Delete
             </button>
-            </div>
-
+          </div>
+          </div>
           <button type="button" class="btn btn-success" (click)=closeWorkers()>
               Close
           </button>
       </div>
-    </div>
+
+
 
 
 
@@ -472,7 +474,6 @@
           <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
           <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideCreateShopper()>Cancel</button>
 
-          <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
         </form>
   </div>
 
@@ -611,7 +612,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideUpdateTransaction()>Cancel</button>
 
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
   </div>
 
@@ -659,7 +659,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideCreateTransaction()>Cancel</button>
 
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
   </div>
 

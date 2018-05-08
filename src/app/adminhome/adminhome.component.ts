@@ -51,49 +51,89 @@ toggleEditProduct = false;
 
   showEditShopper(shopper) {
     this.toggleEditShopper = true;
+    this.showProduct = false;
+    this.showWorker = false;
+    this.showShopper = false;
+    this.showTransaction = false;
+    this.toggleShopper = false;
+    this.toggleTransaction = false;
+    this.toggleWorker = false;
+    this.toggleProduct = false;
     this.selectedShopper = shopper;
   }
 
   showEditWorker(worker) {
     this.toggleEditWorker = true;
+    this.showProduct = false;
+    this.showWorker = false;
+    this.showShopper = false;
+    this.showTransaction = false;
+    this.toggleShopper = false;
+    this.toggleTransaction = false;
+    this.toggleWorker = false;
+    this.toggleProduct = false;
     this.selectedWorker = worker;
   }
 
   showEditTransaction(transaction) {
     this.toggleEditTransaction = true;
+    this.showProduct = false;
+    this.showWorker = false;
+    this.showShopper = false;
+    this.showTransaction = false;
+    this.toggleShopper = false;
+    this.toggleTransaction = false;
+    this.toggleWorker = false;
+    this.toggleProduct = false;
     this.selectedTransaction = transaction;
   }
 
   hideUpdateProduct() {
     this.toggleEditProduct = false;
+    this.toggleProduct = true;
+    this.toggleWorker = false;
+    this.toggleShopper = false;
+    this.toggleTransaction = false;
+    this.showTransaction = false;
     this.showProduct = true;
-    this.showWorker = true;
-    this.showShopper = true;
-    this.showTransaction = true;
+    this.showWorker = false;
+    this.showShopper = false;
   }
 
   hideUpdateWorker() {
     this.toggleEditWorker = false;
-    this.showProduct = true;
+    this.toggleProduct = false;
+    this.toggleWorker = true;
+    this.toggleShopper = false;
+    this.toggleTransaction = false;
+    this.showTransaction = false;
+    this.showProduct = false;
     this.showWorker = true;
-    this.showShopper = true;
-    this.showTransaction = true;
+    this.showShopper = false;
   }
 
   hideUpdateTransaction() {
     this.toggleEditTransaction = false;
-    this.showProduct = true;
-    this.showWorker = true;
-    this.showShopper = true;
+    this.toggleProduct = false;
+    this.toggleWorker = false;
+    this.toggleShopper = false;
+    this.toggleTransaction = true;
     this.showTransaction = true;
+    this.showProduct = false;
+    this.showWorker = false;
+    this.showShopper = false;
   }
 
   hideUpdateShopper() {
     this.toggleEditShopper = false;
-    this.showProduct = true;
-    this.showWorker = true;
+    this.toggleProduct = false;
+    this.toggleWorker = false;
+    this.toggleShopper = true;
+    this.toggleTransaction = false;
+    this.showTransaction = false;
+    this.showProduct = false;
+    this.showWorker = false;
     this.showShopper = true;
-    this.showTransaction = true;
   }
 
   showEditProduct(prod) {
@@ -105,6 +145,7 @@ toggleEditProduct = false;
     this.toggleShopper = false;
     this.toggleTransaction = false;
     this.toggleWorker = false;
+    this.toggleProduct = false;
     this.selectedProduct = prod;
   }
 
@@ -117,6 +158,7 @@ toggleEditProduct = false;
     this.toggleShopper = false;
     this.toggleTransaction = false;
     this.toggleWorker = false;
+    this.toggleProduct = false;
 
   }
 
@@ -161,6 +203,7 @@ toggleEditProduct = false;
     this.toggleShopper = true;
     this.toggleProduct = true;
     this.toggleTransaction = true;
+    this.toggleWorker = true;
   }
 
   hideCreateShopper() {
@@ -168,6 +211,7 @@ toggleEditProduct = false;
     this.toggleWorker = true;
     this.toggleProduct = true;
     this.toggleTransaction = true;
+    this.toggleShopper = true;
   }
 
   hideCreateProduct() {
@@ -183,6 +227,7 @@ toggleEditProduct = false;
     this.toggleWorker = true;
     this.toggleShopper = true;
     this.toggleProduct = true;
+    this.toggleTransaction = true;
   }
 
   showUpdateProduct(product) {
@@ -325,6 +370,8 @@ toggleEditProduct = false;
     .subscribe(res => {
       console.log('Original worker to be updated:' + res);
       this.toggleEditWorker = false;
+      this.toggleWorker = true;
+      this.getWorkers();
     });
   }
 
@@ -347,6 +394,8 @@ toggleEditProduct = false;
     .subscribe(res => {
       console.log('Original Shopper to be updated:' + res);
       this.toggleEditShopper = false;
+      this.toggleShopper = true;
+      this.getShoppers();
       });
   }
 
@@ -365,6 +414,8 @@ toggleEditProduct = false;
     .subscribe(res => {
       console.log('Original Transaction to be updated:' + res);
       this.toggleEditTransaction = false;
+      this.toggleTransaction = true;
+      this.getTransactions();
       });
   }
 
