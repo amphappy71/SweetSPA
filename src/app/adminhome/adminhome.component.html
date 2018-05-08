@@ -14,12 +14,7 @@
       Read
     </button>
 
-    <button type="button" class="btn btn-warning" (click)=showUpdateProduct()>
-      Update
-      </button>
-    <button type="button" class="btn btn-danger" (click)=showDeleteProduct()>
-      Delete
-        </button>
+
     </div>
     <div *ngIf=toggleCreateProduct>
       <form class="form-signin just_form" #product="ngForm" (ngSubmit)="createProduct(product)">
@@ -74,66 +69,135 @@
       </form>
   </div>
 
+  <div *ngIf=toggleEditProduct>
+    <form class="form-signin just_form" #prod="ngForm" (ngSubmit)="updateProduct(prod)">
+      <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Product</h1>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="name" class="form-control" placeholder="name" [ngModel]="selectedProduct.name" required autofocus>
+      <label for="name">Name</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="description" class="form-control" placeholder="description" [ngModel]="selectedProduct.description" required>
+      <label for="description">Description</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="price" class="form-control" placeholder="price" [ngModel]="selectedProduct.price" required>
+      <label for="price">Price</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="cost" class="form-control" placeholder="cost" [ngModel]="selectedProduct.cost" required>
+      <label for="cost">Cost</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="size" class="form-control" placeholder="size" [ngModel]="selectedProduct.size" required>
+      <label for="size">Size</label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="text" name="color" class="form-control" placeholder="color" [ngModel]="selectedProduct.color" required>
+        <label for="color">Color</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" name="imageURL" class="form-control" placeholder="imageURL" [ngModel]="selectedProduct.imageURL" required>
+        <label for="imageURL">Image URL</label>
+      </div>
+
+      <div class="form-label-group">
+          <input type="text" name="inStock" class="form-control" placeholder="inStock" [ngModel]="selectedProduct.inStock" required>
+          <label for="inStock">In Stock</label>
+      </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
+    <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="togglerEditProduct()">Cancel</button>
+
+    <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+  </form>
+</div>
+
+
+
     <div *ngIf=showProduts>
-        <div class="row">
-            <div class="col-md-1">
-                <h2>Image</h2>
-            </div>
-            <div class="col-md-2">
-                <h2>Name</h2>
-            </div>
-            <div class="col-md-3">
-                <h2>Description</h2>
-            </div>
-            <div class="col-md-1">
-                <h2>Size</h2>
-            </div>
-            <div class="col-md-1">
-                <h2>Color</h2>
-            </div>
-            <div class="col-md-1">
-                <h2>Cost</h2>
-            </div>
-            <div class="col-md-1">
-                <h2>Price</h2>
-            </div>
-            <div class="col-md-2">
-                <h2>ImageUrl</h2>
-            </div>
-          </div>
-                 <hr>
-        <div class="row" *ngFor="let prod of productList">
+      <div class="row">
           <div class="col-md-1">
-              <img class="" src={{prod.imageURL}} alt="Image Link Broken">
+              <h2>Image</h2>
+          </div>
+          <div class="col-md-1">
+              <h2>Name</h2>
+          </div>
+          <div class="col-md-1">
+              <h2>Description</h2>
+          </div>
+          <div class="col-md-1">
+              <h2>Size</h2>
+          </div>
+          <div class="col-md-1">
+              <h2>Color</h2>
+          </div>
+          <div class="col-md-1">
+              <h2>Cost</h2>
+          </div>
+          <div class="col-md-1">
+              <h2>Price</h2>
           </div>
           <div class="col-md-2">
-              {{prod.name}}
-          </div>
-          <div class="col-md-3">
-              {{prod.description}}
-          </div>
-          <div class="col-md-1">
-              {{prod.size}}
-          </div>
-          <div class="col-md-1">
-              {{prod.color}}
-          </div>
-          <div class="col-md-1">
-              {{prod.cost}}
-          </div>
-          <div class="col-md-1">
-              {{prod.price}}
-          </div>
-          <div class="col-md-2">
-              {{prod.imageURL}}
+              <h2>ImageUrl</h2>
           </div>
         </div>
-        <button type="button" class="btn btn-success" (click)=closeProducts()>
-            Close
+               <hr>
+      <div class="row" *ngFor="let prod of productList">
+        <div class="col-md-1">
+            <img class="" src={{prod.imageURL}} alt="Image Link Broken">
+        </div>
+        <div class="col-md-1">
+            {{prod.name}}
+        </div>
+        <div class="col-md-1">
+            {{prod.description}}
+        </div>
+        <div class="col-md-1">
+            {{prod.size}}
+        </div>
+        <div class="col-md-1">
+            {{prod.color}}
+        </div>
+        <div class="col-md-1">
+            {{prod.cost}}
+        </div>
+        <div class="col-md-1">
+            {{prod.price}}
+        </div>
+        <div class="col-md-2">
+            {{prod.imageURL}}
+        </div>
+
+        <div class="col-md-1">
+          {{prod.inStock}}
+      </div>
+
+        <button type="button" class="btn btn-warning" (click)=showEditProduct(prod)>
+          Update
           </button>
-    </div>
-    </div>
-    <div *ngIf=toggleWorker>
+        <button type="button" class="btn btn-danger" (click)=deleteProduct(prod._id)>
+          Delete
+            </button>
+
+      </div>
+      <button type="button" class="btn btn-success" (click)=closeProducts()>
+          Close
+        </button>
+
+  </div>
+  </div>
+
+  <div *ngIf=toggleWorker>
   <h2>Workers</h2>
   <div class=btn-group>
     <button type="button" class="btn btn-success" (click)=showCreateWorker()>
@@ -142,13 +206,40 @@
     <button type="button" class="btn btn-primary" (click)=getWorkers()>
       Read
     </button>
-    <button type="button" class="btn btn-warning" (click)=showUpdateWorker()>
-      Update
-    </button>
-    <button type="button" class="btn btn-danger" (click)=showDeleteWorker()>
-      Delete
-    </button>
+
     </div>
+    <div *ngIf=toggleEditWorker>
+      <form class="form-signin just_form" #worker="ngForm" (ngSubmit)="updateWorker(worker)">
+          <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Worker</h1>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="email" class="form-control" placeholder="email" [ngModel]="selectedWorker.email" required autofocus>
+          <label for="email">Email</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="zip" class="form-control" placeholder="zip" [ngModel]="selectedWorker.zip" required>
+          <label for="zip">Zip</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="firstName" class="form-control" placeholder="firstName" [ngModel]="selectedWorker.firstName" required>
+          <label for="firstName">First Name</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="text" name="lastName" class="form-control" placeholder="Last Name" [ngModel]="selectedWorker.lastName" required>
+          <label for="lastName">Last Name</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=togglerEditWorker()>Cancel</button>
+
+        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+      </form>
+  </div>
 
     <div *ngIf=toggleCreateWorker>
       <form class="form-signin just_form" #worker="ngForm" (ngSubmit)="createWorker(worker)">
@@ -176,8 +267,8 @@
           <label for="lastName">Last Name</label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideCreateWorker()>Cancel</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Update</button>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="togglerEditWorker()">Cancel</button>
 
         <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
       </form>
@@ -202,7 +293,7 @@
           <div class="col-md-3 text-center">
               {{worker.email}}
           </div>
-          <div class="col-md-3 text-center">
+          <div class="col-md-2 text-center">
               {{worker.zip}}
           </div>
           <div class="col-md-3 text-center">
@@ -211,10 +302,19 @@
           <div class="col-md-3 text-center">
               {{worker.lastName}}
           </div>
+          <div class="col-md-1 btn-group">
+          <button type="button" class="btn btn-warning" (click)="showEditWorker(worker)">
+            Update
+          </button>
+          <button type="button" class="btn btn-danger" (click)="deleteWorker(worker._id)">
+            Delete
+          </button>
+          </div>
           </div>
           <button type="button" class="btn btn-success" (click)=closeWorkers()>
               Close
             </button>
+
     </div>
     </div>
     <div *ngIf=toggleShopper>
@@ -227,12 +327,7 @@
       Read
     </button>
 
-    <button type="button" class="btn btn-warning" (click)=showUpdateShopper()>
-      Update
-      </button>
-    <button type="button" class="btn btn-danger" (click)=showDeleteShopper()>
-      Delete
-        </button>
+
     </div>
     <div *ngIf=toggleCreateShopper>
         <form class="form-signin just_form" #shopper="ngForm" (ngSubmit)="createShopper(shopper)">
@@ -372,10 +467,12 @@
           <div class="col-md-1">
               {{shopper.password}}
           </div>
+
         </div>
         <button type="button" class="btn btn-success" (click)=closeShoppers()>
             Close
           </button>
+
       </div>
     </div>
     <div *ngIf=toggleTransaction>
@@ -388,12 +485,7 @@
       Read
     </button>
 
-    <button type="button" class="btn btn-warning" (click)=showUpdateTransaction()>
-      Update
-      </button>
-    <button type="button" class="btn btn-danger" (click)=showDeleteTransaction()>
-      Delete
-        </button>
+
     </div>
     <div *ngIf=toggleCreateTransaction>
       <form class="form-signin just_form" #transaction="ngForm" (ngSubmit)="createTransaction(transaction)">
@@ -493,6 +585,12 @@
         <button type="button" class="btn btn-success" (click)=closeTransactions()>
             Close
           </button>
+          <button type="button" class="btn btn-warning" (click)=showUpdateTransaction()>
+            Update
+            </button>
+          <button type="button" class="btn btn-danger">
+            Delete
+              </button>
       </div>
     </div>
 </div>

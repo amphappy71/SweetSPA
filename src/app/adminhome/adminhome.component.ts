@@ -18,10 +18,10 @@ productList: Product[] = [];
 workerList: Worker[] = [];
 transactionList: Transaction[] = [];
 shopperList: Shopper[] = [];
-selectedProduct;
-selectedShopper;
-selectedTransaction;
-selectedWorker;
+selectedProduct: Product;
+selectedShopper: Shopper;
+selectedTransaction: Transaction;
+selectedWorker: Worker;
 showProduts = false;
 showWorker = false;
 showTransaction = false;
@@ -38,10 +38,6 @@ toggleUpdateShopper = false;
 toggleUpdateTransaction = false;
 toggleUpdateWorker = false;
 toggleUpdateProduct = false;
-toggleDeleteShopper = false;
-toggleDeleteTransaction = false;
-toggleDeleteWorker = false;
-toggleDeleteProduct = false;
 toggleEditShopper = false;
 toggleEditTransaction = false;
 toggleEditWorker = false;
@@ -52,20 +48,41 @@ toggleEditProduct = false;
   // goBack() {
   //   this.route.navigate(['adminhome']);
   // }
+
   showEditShopper(shopper) {
     this.toggleEditShopper = true;
+    this.selectedShopper = shopper;
   }
 
   showEditWorker(worker) {
     this.toggleEditWorker = true;
+    this.selectedWorker = worker;
   }
 
   showEditTransaction(transaction) {
     this.toggleEditTransaction = true;
+    this.selectedTransaction = transaction;
   }
 
-  showEditProduct(product) {
+  showEditProduct(prod) {
     this.toggleEditProduct = true;
+    this.selectedProduct = prod;
+  }
+
+  togglerEditProduct() {
+    this.toggleEditProduct = !this.toggleEditProduct;
+  }
+
+  togglerEditWorker() {
+    this.toggleEditWorker = !this.toggleEditWorker;
+  }
+
+  togglerEditShopper() {
+    this.toggleEditShopper = !this.toggleEditShopper;
+  }
+
+  togglerEditTransaction() {
+    this.toggleEditTransaction = !this.toggleEditTransaction;
   }
 
   showCreateProduct() {
@@ -115,27 +132,6 @@ toggleEditProduct = false;
     this.selectedTransaction = transaction;
   }
 
-  showUpdateShopper(shopper) {
-    this.toggleUpdateShopper = true;
-    this.selectedShopper = shopper;
-  }
-
-  showDeleteProduct() {
-    this.toggleDeleteProduct = true;
-  }
-
-  showDeleteWorker() {
-    this.toggleDeleteWorker = true;
-  }
-
-  showDeleteTransaction() {
-    this.toggleDeleteTransaction = true;
-  }
-
-  showDeleteShopper() {
-    this.toggleDeleteShopper = true;
-  }
-
   createProduct(product) {
     const newProduct: Product = {
       name: product.value.name,
@@ -151,6 +147,7 @@ toggleEditProduct = false;
     .subscribe(prod => {
       console.log(prod);
       this.toggleCreateProduct = false;
+      this.getProducts();
     });
   }
 
@@ -206,27 +203,31 @@ toggleEditProduct = false;
     });
   }
 
-  updateProduct(editProduct) {
+  updateProduct(prod) {
+    this.toggleProduct = false;
+    this.toggleEditProduct = true;
     const newProduct: Product = {
-      _id: this.selectedProduct,
-      name: editProduct.value.name,
-      description: editProduct.value.description,
-      cost: editProduct.value.cost,
-      price: editProduct.value.price,
-      size: editProduct.value.size,
-      color: editProduct.value.color,
-      imageURL: editProduct.value.imageURL,
-      inStock: editProduct.value.inStock
+      _id: this.selectedProduct._id,
+      name: prod.value.name,
+      description: prod.value.description,
+      cost: prod.value.cost,
+      price: prod.value.price,
+      size: prod.value.size,
+      color: prod.value.color,
+      imageURL: prod.value.imageURL,
+      inStock: prod.value.inStock
     };
     this.data.updateProduct(newProduct)
     .subscribe(res => {
       console.log('Original product to be updated:' + res);
       this.getProducts();
+      this.toggleEditShopper = false;
     });
   }
 
   updateWorker(editWorker) {
     const newWorker: Worker = {
+      _id: this.selectedWorker._id,
       email: editWorker.value.email,
       zip: editWorker.value.zip,
       firstName: editWorker.value.firstName,
@@ -236,11 +237,13 @@ toggleEditProduct = false;
     .subscribe(res => {
       console.log('Original worker to be updated:' + res);
       this.getWorkers();
+      this.toggleEditWorker = false;
     });
   }
 
   updateShopper(editShopper) {
     const newShopper: Shopper = {
+      _id: this.selectedShopper._id,
       address1: editShopper.value.address1,
       address2: editShopper.value.address2,
       city: editShopper.value.city,
@@ -253,7 +256,7 @@ toggleEditProduct = false;
       state: editShopper.value.state,
       zip: editShopper.value.zip
     };
-    this.data.updateWorker(newShopper)
+    this.data.updateShopper(newShopper)
     .subscribe(res => {
       console.log('Original Shopper to be updated:' + res);
       this.getShoppers();
@@ -262,6 +265,7 @@ toggleEditProduct = false;
 
   updateTransaction(editTransaction) {
     const newTransaction: Transaction = {
+      _id: this.selectedTransaction._id,
       productID: editTransaction.value.productID,
       shopperID: editTransaction.value.shopperID,
       productPrice: editTransaction.value.productPrice,
@@ -364,6 +368,9 @@ toggleEditProduct = false;
   getProducts() {
     this.toggleProduct = true;
     this.showProduts = true;
+    this.toggleEditProduct = false;
+    this.toggleCreateProduct = false;
+    this.toggleUpdateProduct = false;
     this.toggleShopper = false;
     this.toggleWorker = false;
     this.toggleTransaction = false;
