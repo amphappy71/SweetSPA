@@ -106,59 +106,59 @@
 
       </form>
   </div>
-
   <div *ngIf=toggleEditProduct>
-    <form class="form-signin just_form" #prod="ngForm" (ngSubmit)="updateProduct(prod)">
+      <form class="form-signin just_form" #product="ngForm" (ngSubmit)="updateProduct(prod)">
+          <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Product</h1>
+          </div>
 
-        <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Product</h1>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="name" class="form-control" placeholder="name" [ngModel]="selectedProduct.name" required autofocus>
+          <label for="name">Name</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="name" class="form-control" placeholder="name" [ngModel]="selectedProduct.name" required autofocus>
-        <label for="name">Name</label>
-        </div>
-
-        <div class="form-label-group">
-        <input type="text" name="description" class="form-control" placeholder="description" [ngModel]="selectedProduct.description" required>
-        <label for="description">Description</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="description" class="form-control" placeholder="description" [ngModel]="selectedProduct.description" required>
+          <label for="description">Description</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="price" class="form-control" placeholder="price" [ngModel]="selectedProduct.price" required>
-        <label for="price">Price</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="price" class="form-control" placeholder="price" [ngModel]="selectedProduct.price" required>
+          <label for="price">Price</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="cost" class="form-control" placeholder="cost" [ngModel]="selectedProduct.cost" required>
-        <label for="cost">Cost</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="cost" class="form-control" placeholder="cost" [ngModel]="selectedProduct.cost" required>
+          <label for="cost">Cost</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="size" class="form-control" placeholder="size" [ngModel]="selectedProduct.size" required>
-        <label for="size">Size</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="size" class="form-control" placeholder="size" [ngModel]="selectedProduct.size" required>
+          <label for="size">Size</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="color" class="form-control" placeholder="color" [ngModel]="selectedProduct.color" required>
-        <label for="color">Color</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="color" class="form-control" placeholder="color" [ngModel]="selectedProduct.color" required>
+          <label for="color">Color</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="imageURL" class="form-control" placeholder="imageURL" [ngModel]="selectedProduct.imageURL" required>
-        <label for="imageURL">Image URL</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="imageURL" class="form-control" placeholder="imageURL" [ngModel]="selectedProduct.imageURL" required>
+          <label for="imageURL">Image URL</label>
+          </div>
 
-        <div class="form-label-group">
-        <input type="text" name="inStock" class="form-control" placeholder="inStock" [ngModel]="selectedProduct.inStock" required>
-        <label for="inStock">In Stock</label>
-        </div>
+          <div class="form-label-group">
+          <input type="text" name="inStock" class="form-control" placeholder="inStock" [ngModel]="selectedProduct.inStock" required>
+          <label for="inStock">In Stock</label>
+          </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)="hideUpdateProduct()">Cancel</button>
+        <button class="btn btn-lg btn-danger btn-block" type="button" name="button" (click)=hideUpdateProduct()>Cancel</button>
 
-   </form>
-</div>
+      </form>
+  </div>
+
+
 
 <div *ngIf=showProduct>
       <div class="row">
