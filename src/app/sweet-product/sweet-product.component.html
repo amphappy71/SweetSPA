@@ -1,14 +1,16 @@
-<div class="" *ngFor="let product of productList; let i=index">
-<div class="album py-5 bg-light">
-    <div class="container">
+<div class="container">
 
-      <div class="row">
-        <div class="col-md-4">
+<div class="card-deck">
+<div class="" *ngFor="let product of productList; let i=index">
+<!-- <div class=""> -->
+
+      <!-- <div class="row"> -->
+        <!-- <div class="col-md-4"> -->
           <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src={{product.imageURL}} alt="Card image cap">
-            <div class="card-body">
+            <img class="card-img-top" src={{product.imageURL}} alt="Sweet Image Missing!">
+            <div class="card-body mb-4">
               <p class="card-text ">{{product.description}}</p>
-              <h5>{{product.price}}</h5>
+              <h5 class="price">{{product.price}}</h5>
 
                 <!-- <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -46,7 +48,7 @@ Select Size
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
+          <!-- </div> -->
+        <!-- </div>
+      </div> -->
 
