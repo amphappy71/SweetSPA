@@ -5,19 +5,16 @@
 }
 
 .card{
-  background-color: rgb(85, 247, 64);
+  /* background-color: rgb(85, 247, 64); */
   border: 4px solid blue;
+  box-shadow: 3px;
 }
 
 .card-body{
-  background-color: red;
-  border: 4px solid blue;
+  background-color: rgb(52, 34, 214);
 }
 
 .price {
   color: white;
 }
 
-img{
-  size: 400px;
-}
