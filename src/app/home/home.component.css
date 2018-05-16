@@ -1,5 +1,5 @@
 .jumbotron {
-  background-image: url("../../assets/clouds.png");
+  background-image: url("../../assets/backgreen.jpg");
   background-size: cover;
   background-position: topc;
   background-repeat: no-repeat;
@@ -10,10 +10,19 @@
 
 }
 img {
-  width: 76%;
+  width: 70%;
   height: auto;
 }
 
 h4{
   color: floralwhite;
+}
+.col-md-3{
+  background-color: greenyellow;
+}
+.col-md-1{
+  background-color: aqua;
+}
+.col-md-11{
+  background-color: coral;
 }

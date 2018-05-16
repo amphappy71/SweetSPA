@@ -1,5 +1,6 @@
 <div class="container">
-    <hr>
+
+  <hr>
       <h1>Sweet T's Mission</h1>
       <hr>
       <div class="text-center">
@@ -7,18 +8,22 @@
       <p>Our initial jobs will be offered in Johns Creek, GA.
       Additional future sites will opened as the needs are identified.
       If you are caregiver or family memeber of an adult with a congnitive disability,
-      and you would like to register for a job when the Sweet T's Crew Call comes to town,
-      please submit the following information, and we'll arrange for an interview when Sweet T's comes to your area.</p>
+      and you would like to register your loved one for a job when the Sweet T's Crew Call comes to town,
+      please submit the following information, and we'll arrange for an interview <span class="boldred">(we customize positions)</span> when Sweet T's comes to your area.</p>
   </div>
-  <br>
-  <div class="row justify-center">
-  <img src="../../assets/tshirt-we-need.svg" alt="">
+  <br>
+
+  <div class="row text-center">
+      <!-- <div class="container-fluid text-center">
+          <img src="../../assets/tshirt-we-need.svg" alt="">
+          </div> -->
+
 
       <form class="form-signin just_form" #frm="ngForm" (ngSubmit)="addWorker(frm)">
-          <div class="text-center mb-4">
-          <h1 class="h3 mb-3 font-weight-normal">Crew Registration</h1>
-          <p>Join the Crew!</p>
-        </div>
+          <!-- <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Register Now!</h1>
+
+        </div> -->
 
         <div class="form-label-group">
           <input type="text" name="email" class="form-control" placeholder="Email address" ngModel required autofocus>
@@ -41,10 +46,13 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="button">Submit</button>
-        <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p>
+        <br>
+        <p><em>* Sweet T's - Stings and Things will never share or sell your information.</em></p>
+        <!-- <p class="mt-5 mb-3 text-muted text-center">&copy; Sweet T's - Strings and Things 2017-2018</p> -->
+
+
       </form>
-</div>
-      <p><em>* Sweet T's - Stings and Things will never share or sell your information.</em></p>
+
 </div>
 
 <br>

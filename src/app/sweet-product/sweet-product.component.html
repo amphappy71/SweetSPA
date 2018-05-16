@@ -4,9 +4,11 @@
 <div class="" *ngFor="let product of productList; let i=index">
 <!-- <div class=""> -->
 
+
       <!-- <div class="row"> -->
         <!-- <div class="col-md-4"> -->
           <div class="card mb-4 box-shadow">
+            <div class="card-header text-center"><h4>{{product.name}}</h4></div>
             <img class="card-img-top" src={{product.imageURL}} alt="Sweet Image Missing!">
             <div class="card-body mb-4">
               <p class="card-text ">{{product.description}}</p>
@@ -30,13 +32,15 @@ Select Size
 <div class="modal-dialog" role="document">
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Please Select</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Please select a size.</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    ...
+      <label class="radio-inline"><input type="radio" name="optradio">Small</label>
+      <label class="radio-inline"><input type="radio" name="optradio">Medium</label>
+      <label class="radio-inline"><input type="radio" name="optradio">Large</label>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
